@@ -1,0 +1,3542 @@
+<!DOCTYPE html>
+<html class="no-js" data-scrapbook-source="https://checkout.flutterwave.com/?">
+  <head>
+    <style type="text/css">
+      .tippy-iOS {
+        cursor: pointer !important;
+        -webkit-tap-highlight-color: transparent;
+      }
+      .tippy-popper {
+        transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
+        max-width: calc(100% - 8px);
+        pointer-events: none;
+        outline: 0;
+      }
+      .tippy-popper[x-placement^="top"] .tippy-backdrop {
+        border-radius: 40% 40% 0 0;
+      }
+      .tippy-popper[x-placement^="top"] .tippy-roundarrow {
+        bottom: -7px;
+        bottom: -6.5px;
+        -webkit-transform-origin: 50% 0;
+        transform-origin: 50% 0;
+        margin: 0 3px;
+      }
+      .tippy-popper[x-placement^="top"] .tippy-roundarrow svg {
+        position: absolute;
+        left: 0;
+        -webkit-transform: rotate(180deg);
+        transform: rotate(180deg);
+      }
+      .tippy-popper[x-placement^="top"] .tippy-arrow {
+        border-top: 8px solid #333;
+        border-right: 8px solid transparent;
+        border-left: 8px solid transparent;
+        bottom: -7px;
+        margin: 0 3px;
+        -webkit-transform-origin: 50% 0;
+        transform-origin: 50% 0;
+      }
+      .tippy-popper[x-placement^="top"] .tippy-backdrop {
+        -webkit-transform-origin: 0 25%;
+        transform-origin: 0 25%;
+      }
+      .tippy-popper[x-placement^="top"] .tippy-backdrop[data-state="visible"] {
+        -webkit-transform: scale(1) translate(-50%, -55%);
+        transform: scale(1) translate(-50%, -55%);
+      }
+      .tippy-popper[x-placement^="top"] .tippy-backdrop[data-state="hidden"] {
+        -webkit-transform: scale(0.2) translate(-50%, -45%);
+        transform: scale(0.2) translate(-50%, -45%);
+        opacity: 0;
+      }
+      .tippy-popper[x-placement^="top"]
+        [data-animation="shift-toward"][data-state="visible"] {
+        -webkit-transform: translateY(-10px);
+        transform: translateY(-10px);
+      }
+      .tippy-popper[x-placement^="top"]
+        [data-animation="shift-toward"][data-state="hidden"] {
+        opacity: 0;
+        -webkit-transform: translateY(-20px);
+        transform: translateY(-20px);
+      }
+      .tippy-popper[x-placement^="top"] [data-animation="perspective"] {
+        -webkit-transform-origin: bottom;
+        transform-origin: bottom;
+      }
+      .tippy-popper[x-placement^="top"]
+        [data-animation="perspective"][data-state="visible"] {
+        -webkit-transform: perspective(700px) translateY(-10px) rotateX(0);
+        transform: perspective(700px) translateY(-10px) rotateX(0);
+      }
+      .tippy-popper[x-placement^="top"]
+        [data-animation="perspective"][data-state="hidden"] {
+        opacity: 0;
+        -webkit-transform: perspective(700px) translateY(0) rotateX(60deg);
+        transform: perspective(700px) translateY(0) rotateX(60deg);
+      }
+      .tippy-popper[x-placement^="top"]
+        [data-animation="fade"][data-state="visible"] {
+        -webkit-transform: translateY(-10px);
+        transform: translateY(-10px);
+      }
+      .tippy-popper[x-placement^="top"]
+        [data-animation="fade"][data-state="hidden"] {
+        opacity: 0;
+        -webkit-transform: translateY(-10px);
+        transform: translateY(-10px);
+      }
+      .tippy-popper[x-placement^="top"]
+        [data-animation="shift-away"][data-state="visible"] {
+        -webkit-transform: translateY(-10px);
+        transform: translateY(-10px);
+      }
+      .tippy-popper[x-placement^="top"]
+        [data-animation="shift-away"][data-state="hidden"] {
+        opacity: 0;
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+      }
+      .tippy-popper[x-placement^="top"] [data-animation="scale"] {
+        -webkit-transform-origin: bottom;
+        transform-origin: bottom;
+      }
+      .tippy-popper[x-placement^="top"]
+        [data-animation="scale"][data-state="visible"] {
+        -webkit-transform: translateY(-10px) scale(1);
+        transform: translateY(-10px) scale(1);
+      }
+      .tippy-popper[x-placement^="top"]
+        [data-animation="scale"][data-state="hidden"] {
+        opacity: 0;
+        -webkit-transform: translateY(-10px) scale(0.5);
+        transform: translateY(-10px) scale(0.5);
+      }
+      .tippy-popper[x-placement^="bottom"] .tippy-backdrop {
+        border-radius: 0 0 30% 30%;
+      }
+      .tippy-popper[x-placement^="bottom"] .tippy-roundarrow {
+        top: -7px;
+        -webkit-transform-origin: 50% 100%;
+        transform-origin: 50% 100%;
+        margin: 0 3px;
+      }
+      .tippy-popper[x-placement^="bottom"] .tippy-roundarrow svg {
+        position: absolute;
+        left: 0;
+        -webkit-transform: rotate(0);
+        transform: rotate(0);
+      }
+      .tippy-popper[x-placement^="bottom"] .tippy-arrow {
+        border-bottom: 8px solid #333;
+        border-right: 8px solid transparent;
+        border-left: 8px solid transparent;
+        top: -7px;
+        margin: 0 3px;
+        -webkit-transform-origin: 50% 100%;
+        transform-origin: 50% 100%;
+      }
+      .tippy-popper[x-placement^="bottom"] .tippy-backdrop {
+        -webkit-transform-origin: 0 -50%;
+        transform-origin: 0 -50%;
+      }
+      .tippy-popper[x-placement^="bottom"]
+        .tippy-backdrop[data-state="visible"] {
+        -webkit-transform: scale(1) translate(-50%, -45%);
+        transform: scale(1) translate(-50%, -45%);
+      }
+      .tippy-popper[x-placement^="bottom"]
+        .tippy-backdrop[data-state="hidden"] {
+        -webkit-transform: scale(0.2) translate(-50%);
+        transform: scale(0.2) translate(-50%);
+        opacity: 0;
+      }
+      .tippy-popper[x-placement^="bottom"]
+        [data-animation="shift-toward"][data-state="visible"] {
+        -webkit-transform: translateY(10px);
+        transform: translateY(10px);
+      }
+      .tippy-popper[x-placement^="bottom"]
+        [data-animation="shift-toward"][data-state="hidden"] {
+        opacity: 0;
+        -webkit-transform: translateY(20px);
+        transform: translateY(20px);
+      }
+      .tippy-popper[x-placement^="bottom"] [data-animation="perspective"] {
+        -webkit-transform-origin: top;
+        transform-origin: top;
+      }
+      .tippy-popper[x-placement^="bottom"]
+        [data-animation="perspective"][data-state="visible"] {
+        -webkit-transform: perspective(700px) translateY(10px) rotateX(0);
+        transform: perspective(700px) translateY(10px) rotateX(0);
+      }
+      .tippy-popper[x-placement^="bottom"]
+        [data-animation="perspective"][data-state="hidden"] {
+        opacity: 0;
+        -webkit-transform: perspective(700px) translateY(0) rotateX(-60deg);
+        transform: perspective(700px) translateY(0) rotateX(-60deg);
+      }
+      .tippy-popper[x-placement^="bottom"]
+        [data-animation="fade"][data-state="visible"] {
+        -webkit-transform: translateY(10px);
+        transform: translateY(10px);
+      }
+      .tippy-popper[x-placement^="bottom"]
+        [data-animation="fade"][data-state="hidden"] {
+        opacity: 0;
+        -webkit-transform: translateY(10px);
+        transform: translateY(10px);
+      }
+      .tippy-popper[x-placement^="bottom"]
+        [data-animation="shift-away"][data-state="visible"] {
+        -webkit-transform: translateY(10px);
+        transform: translateY(10px);
+      }
+      .tippy-popper[x-placement^="bottom"]
+        [data-animation="shift-away"][data-state="hidden"] {
+        opacity: 0;
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+      }
+      .tippy-popper[x-placement^="bottom"] [data-animation="scale"] {
+        -webkit-transform-origin: top;
+        transform-origin: top;
+      }
+      .tippy-popper[x-placement^="bottom"]
+        [data-animation="scale"][data-state="visible"] {
+        -webkit-transform: translateY(10px) scale(1);
+        transform: translateY(10px) scale(1);
+      }
+      .tippy-popper[x-placement^="bottom"]
+        [data-animation="scale"][data-state="hidden"] {
+        opacity: 0;
+        -webkit-transform: translateY(10px) scale(0.5);
+        transform: translateY(10px) scale(0.5);
+      }
+      .tippy-popper[x-placement^="left"] .tippy-backdrop {
+        border-radius: 50% 0 0 50%;
+      }
+      .tippy-popper[x-placement^="left"] .tippy-roundarrow {
+        right: -12px;
+        -webkit-transform-origin: 33.33333333% 50%;
+        transform-origin: 33.33333333% 50%;
+        margin: 3px 0;
+      }
+      .tippy-popper[x-placement^="left"] .tippy-roundarrow svg {
+        position: absolute;
+        left: 0;
+        -webkit-transform: rotate(90deg);
+        transform: rotate(90deg);
+      }
+      .tippy-popper[x-placement^="left"] .tippy-arrow {
+        border-left: 8px solid #333;
+        border-top: 8px solid transparent;
+        border-bottom: 8px solid transparent;
+        right: -7px;
+        margin: 3px 0;
+        -webkit-transform-origin: 0 50%;
+        transform-origin: 0 50%;
+      }
+      .tippy-popper[x-placement^="left"] .tippy-backdrop {
+        -webkit-transform-origin: 50% 0;
+        transform-origin: 50% 0;
+      }
+      .tippy-popper[x-placement^="left"] .tippy-backdrop[data-state="visible"] {
+        -webkit-transform: scale(1) translate(-50%, -50%);
+        transform: scale(1) translate(-50%, -50%);
+      }
+      .tippy-popper[x-placement^="left"] .tippy-backdrop[data-state="hidden"] {
+        -webkit-transform: scale(0.2) translate(-75%, -50%);
+        transform: scale(0.2) translate(-75%, -50%);
+        opacity: 0;
+      }
+      .tippy-popper[x-placement^="left"]
+        [data-animation="shift-toward"][data-state="visible"] {
+        -webkit-transform: translateX(-10px);
+        transform: translateX(-10px);
+      }
+      .tippy-popper[x-placement^="left"]
+        [data-animation="shift-toward"][data-state="hidden"] {
+        opacity: 0;
+        -webkit-transform: translateX(-20px);
+        transform: translateX(-20px);
+      }
+      .tippy-popper[x-placement^="left"] [data-animation="perspective"] {
+        -webkit-transform-origin: right;
+        transform-origin: right;
+      }
+      .tippy-popper[x-placement^="left"]
+        [data-animation="perspective"][data-state="visible"] {
+        -webkit-transform: perspective(700px) translateX(-10px) rotateY(0);
+        transform: perspective(700px) translateX(-10px) rotateY(0);
+      }
+      .tippy-popper[x-placement^="left"]
+        [data-animation="perspective"][data-state="hidden"] {
+        opacity: 0;
+        -webkit-transform: perspective(700px) translateX(0) rotateY(-60deg);
+        transform: perspective(700px) translateX(0) rotateY(-60deg);
+      }
+      .tippy-popper[x-placement^="left"]
+        [data-animation="fade"][data-state="visible"] {
+        -webkit-transform: translateX(-10px);
+        transform: translateX(-10px);
+      }
+      .tippy-popper[x-placement^="left"]
+        [data-animation="fade"][data-state="hidden"] {
+        opacity: 0;
+        -webkit-transform: translateX(-10px);
+        transform: translateX(-10px);
+      }
+      .tippy-popper[x-placement^="left"]
+        [data-animation="shift-away"][data-state="visible"] {
+        -webkit-transform: translateX(-10px);
+        transform: translateX(-10px);
+      }
+      .tippy-popper[x-placement^="left"]
+        [data-animation="shift-away"][data-state="hidden"] {
+        opacity: 0;
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+      }
+      .tippy-popper[x-placement^="left"] [data-animation="scale"] {
+        -webkit-transform-origin: right;
+        transform-origin: right;
+      }
+      .tippy-popper[x-placement^="left"]
+        [data-animation="scale"][data-state="visible"] {
+        -webkit-transform: translateX(-10px) scale(1);
+        transform: translateX(-10px) scale(1);
+      }
+      .tippy-popper[x-placement^="left"]
+        [data-animation="scale"][data-state="hidden"] {
+        opacity: 0;
+        -webkit-transform: translateX(-10px) scale(0.5);
+        transform: translateX(-10px) scale(0.5);
+      }
+      .tippy-popper[x-placement^="right"] .tippy-backdrop {
+        border-radius: 0 50% 50% 0;
+      }
+      .tippy-popper[x-placement^="right"] .tippy-roundarrow {
+        left: -12px;
+        -webkit-transform-origin: 66.66666666% 50%;
+        transform-origin: 66.66666666% 50%;
+        margin: 3px 0;
+      }
+      .tippy-popper[x-placement^="right"] .tippy-roundarrow svg {
+        position: absolute;
+        left: 0;
+        -webkit-transform: rotate(-90deg);
+        transform: rotate(-90deg);
+      }
+      .tippy-popper[x-placement^="right"] .tippy-arrow {
+        border-right: 8px solid #333;
+        border-top: 8px solid transparent;
+        border-bottom: 8px solid transparent;
+        left: -7px;
+        margin: 3px 0;
+        -webkit-transform-origin: 100% 50%;
+        transform-origin: 100% 50%;
+      }
+      .tippy-popper[x-placement^="right"] .tippy-backdrop {
+        -webkit-transform-origin: -50% 0;
+        transform-origin: -50% 0;
+      }
+      .tippy-popper[x-placement^="right"]
+        .tippy-backdrop[data-state="visible"] {
+        -webkit-transform: scale(1) translate(-50%, -50%);
+        transform: scale(1) translate(-50%, -50%);
+      }
+      .tippy-popper[x-placement^="right"] .tippy-backdrop[data-state="hidden"] {
+        -webkit-transform: scale(0.2) translate(-25%, -50%);
+        transform: scale(0.2) translate(-25%, -50%);
+        opacity: 0;
+      }
+      .tippy-popper[x-placement^="right"]
+        [data-animation="shift-toward"][data-state="visible"] {
+        -webkit-transform: translateX(10px);
+        transform: translateX(10px);
+      }
+      .tippy-popper[x-placement^="right"]
+        [data-animation="shift-toward"][data-state="hidden"] {
+        opacity: 0;
+        -webkit-transform: translateX(20px);
+        transform: translateX(20px);
+      }
+      .tippy-popper[x-placement^="right"] [data-animation="perspective"] {
+        -webkit-transform-origin: left;
+        transform-origin: left;
+      }
+      .tippy-popper[x-placement^="right"]
+        [data-animation="perspective"][data-state="visible"] {
+        -webkit-transform: perspective(700px) translateX(10px) rotateY(0);
+        transform: perspective(700px) translateX(10px) rotateY(0);
+      }
+      .tippy-popper[x-placement^="right"]
+        [data-animation="perspective"][data-state="hidden"] {
+        opacity: 0;
+        -webkit-transform: perspective(700px) translateX(0) rotateY(60deg);
+        transform: perspective(700px) translateX(0) rotateY(60deg);
+      }
+      .tippy-popper[x-placement^="right"]
+        [data-animation="fade"][data-state="visible"] {
+        -webkit-transform: translateX(10px);
+        transform: translateX(10px);
+      }
+      .tippy-popper[x-placement^="right"]
+        [data-animation="fade"][data-state="hidden"] {
+        opacity: 0;
+        -webkit-transform: translateX(10px);
+        transform: translateX(10px);
+      }
+      .tippy-popper[x-placement^="right"]
+        [data-animation="shift-away"][data-state="visible"] {
+        -webkit-transform: translateX(10px);
+        transform: translateX(10px);
+      }
+      .tippy-popper[x-placement^="right"]
+        [data-animation="shift-away"][data-state="hidden"] {
+        opacity: 0;
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+      }
+      .tippy-popper[x-placement^="right"] [data-animation="scale"] {
+        -webkit-transform-origin: left;
+        transform-origin: left;
+      }
+      .tippy-popper[x-placement^="right"]
+        [data-animation="scale"][data-state="visible"] {
+        -webkit-transform: translateX(10px) scale(1);
+        transform: translateX(10px) scale(1);
+      }
+      .tippy-popper[x-placement^="right"]
+        [data-animation="scale"][data-state="hidden"] {
+        opacity: 0;
+        -webkit-transform: translateX(10px) scale(0.5);
+        transform: translateX(10px) scale(0.5);
+      }
+      .tippy-tooltip {
+        position: relative;
+        color: #fff;
+        border-radius: 0.25rem;
+        font-size: 0.875rem;
+        padding: 0.3125rem 0.5625rem;
+        line-height: 1.4;
+        text-align: center;
+        background-color: #333;
+      }
+      .tippy-tooltip[data-size="small"] {
+        padding: 0.1875rem 0.375rem;
+        font-size: 0.75rem;
+      }
+      .tippy-tooltip[data-size="large"] {
+        padding: 0.375rem 0.75rem;
+        font-size: 1rem;
+      }
+      .tippy-tooltip[data-animatefill] {
+        overflow: hidden;
+        background-color: transparent;
+      }
+      .tippy-tooltip[data-interactive],
+      .tippy-tooltip[data-interactive] path {
+        pointer-events: auto;
+      }
+      .tippy-tooltip[data-inertia][data-state="visible"] {
+        transition-timing-function: cubic-bezier(0.54, 1.5, 0.38, 1.11);
+      }
+      .tippy-tooltip[data-inertia][data-state="hidden"] {
+        transition-timing-function: ease;
+      }
+      .tippy-arrow,
+      .tippy-roundarrow {
+        position: absolute;
+        width: 0;
+        height: 0;
+      }
+      .tippy-roundarrow {
+        width: 18px;
+        height: 7px;
+        fill: #333;
+        pointer-events: none;
+      }
+      .tippy-backdrop {
+        position: absolute;
+        background-color: #333;
+        border-radius: 50%;
+        width: calc(110% + 2rem);
+        left: 50%;
+        top: 50%;
+        z-index: -1;
+        transition: all cubic-bezier(0.46, 0.1, 0.52, 0.98);
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+      }
+      .tippy-backdrop:after {
+        content: "";
+        float: left;
+        padding-top: 100%;
+      }
+      .tippy-backdrop + .tippy-content {
+        transition-property: opacity;
+        will-change: opacity;
+      }
+      .tippy-backdrop + .tippy-content[data-state="visible"] {
+        opacity: 1;
+      }
+      .tippy-backdrop + .tippy-content[data-state="hidden"] {
+        opacity: 0;
+      }
+    </style>
+    <meta charset="UTF-8" />
+    <title>Rave Checkout</title>
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="description" content="" />
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0"
+    />
+    <link rel="icon" type="image/x-icon" href="favicon-1.ico" />
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
+    <meta name="merchant_identifier" content="" />
+    <!-- <link href="assets/css/animate.css" rel="stylesheet"> -->
+    <link href="light.css" rel="stylesheet" />
+    <link href="style.min.css" rel="stylesheet" />
+  </head>
+
+  <body class="">
+    <div class="checkout">
+      <div class="checkout__container">
+        <div class="checkout__body animated zoomIn">
+          <div id="web-close-btn" class="checkout__close hide-xs">
+            <svg
+              width="8px"
+              height="8px"
+              viewBox="0 0 15 15"
+              version="1.1"
+              xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink"
+            >
+              <defs></defs>
+              <g
+                id="Page-1"
+                stroke="none"
+                stroke-width="1"
+                fill="none"
+                fill-rule="evenodd"
+              >
+                <g id="noun_Close_1824104" fill="#000000">
+                  <path
+                    d="M0.160714286,1.15178571 L1.15178571,0.160714286 C1.36607143,-0.0535714286 1.71428571,-0.0535714286 1.90178571,0.160714286 L7.5,5.73214286 L13.0714286,0.160714286 C13.2857143,-0.0535714286 13.6339286,-0.0535714286 13.8482143,0.160714286 L14.8392857,1.15178571 C15.0535714,1.36607143 15.0535714,1.71428571 14.8392857,1.90178571 L9.24107143,7.5 L14.8392857,13.0714286 C15.0535714,13.2857143 15.0535714,13.6339286 14.8392857,13.8482143 L13.8482143,14.8392857 C13.6339286,15.0535714 13.2857143,15.0535714 13.0714286,14.8392857 L7.5,9.24107143 L1.90178571,14.8392857 C1.71428571,15.0535714 1.36607143,15.0535714 1.15178571,14.8392857 L0.160714286,13.8482143 C-0.0535714286,13.6339286 -0.0535714286,13.2857143 0.160714286,13.0714286 L5.73214286,7.5 L0.160714286,1.90178571 C-0.0535714286,1.71428571 -0.0535714286,1.36607143 0.160714286,1.15178571 Z"
+                    id="Shape"
+                  ></path>
+                </g>
+              </g>
+            </svg>
+          </div>
+
+          <div class="checkout__secure hide-xs">
+            <div class="badge">
+              <div class="secured">
+                <a
+                  href="https://www.flutterwave.com/"
+                  id="securedbytextlink"
+                  target="_blank"
+                  rel="noreferrer noopener"
+                >
+                  <div class="secured__badge">
+                    <div class="secured__badge__icon">
+                      <svg height="9.599999999999909" width="8">
+                        <defs>
+                          <path
+                            id="path-0"
+                            opacity="1"
+                            d="M3.9932318000000038,0.7706122399999913 C5.211505900000002,0.7706122399999913 6.226734300000004,1.724081599999991 6.226734300000004,2.912653099999993 L6.226734300000004,3.7224489999999903 L1.7597293000000036,3.7224489999999903 L1.7597293000000036,2.912653099999993 C1.7597293000000036,1.7371428999999914 2.774957700000005,0.7706122399999913 3.9932318000000038,0.7706122399999913 L3.9932318000000038,0.7706122399999913ZM4.006768200000021,5.407346899999993 C4.426395900000021,5.407346899999993 4.7648054000000215,5.7338775999999925 4.7648054000000215,6.138775499999994 C4.7648054000000215,6.386938799999992 4.642978000000021,6.556734699999993 4.453468700000023,6.687346899999994 L4.670050800000023,7.902040799999995 L3.3434856000000224,7.902040799999995 L3.5600677000000225,6.700408199999991 C3.3705584000000215,6.5697958999999955 3.2487310000000207,6.373877599999993 3.2487310000000207,6.138775499999994 C3.2487310000000207,5.7338775999999925 3.5871404000000204,5.407346899999993 4.006768200000021,5.407346899999993 L4.006768200000021,5.407346899999993ZM3.9932318,0 C2.3282571999999995,0 0.9475465000000014,1.3061223999999996 0.9475465000000014,2.9126531 L0.9475465000000014,3.7224489999999975 L0.4602368999999982,3.7224489999999975 C0.18950929999999744,3.7224489999999975 0,4.048979599999999 0,4.3102041 L0,9.234285700000001 C0,9.495510199999998 0.18950929999999744,9.600000000000001 0.4602368999999982,9.600000000000001 L7.5803723000000005,9.600000000000001 C7.8510998,9.600000000000001 8,9.495510199999998 8,9.234285700000001 L8,4.3102041 C7.9864636,4.048979599999999 7.824027099999999,3.7224489999999975 7.566835900000001,3.7224489999999975 L7.038917100000003,3.7224489999999975 L7.038917100000003,2.9126531 C7.038917099999999,1.3061223999999996 5.658206400000001,0 3.9932318,0 L3.9932318,0Z"
+                          ></path>
+                        </defs>
+                        <g transform="translate(0, 0) ">
+                          <use
+                            xlink:href="#path-0"
+                            fill="#f5a623"
+                            fill-opacity="1"
+                          ></use>
+                        </g>
+                      </svg>
+                    </div>
+                    <div class="secured__badge__text">
+                      <span
+                        data-label-en="secured by"
+                        data-label-fr="sécurisé par"
+                        >secured by</span
+                      >
+                      <span id="securedbytext">flutterwave</span>
+                    </div>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="uber-checkout__secure hide">
+            <div class="badge">
+              <div class="secured">
+                <a
+                  href="https://www.flutterwave.com/"
+                  id="securedbytextlink"
+                  target="_blank"
+                  rel="noreferrer noopener"
+                >
+                  <span class="secured__badge">
+                    <span class="secured__badge__text">
+                      <span class="secured__badge__icon">
+                        <svg viewBox="0 0 8 10" height="13" width="10">
+                          <defs>
+                            <path
+                              id="path-0"
+                              opacity="1"
+                              d="M3.9932318000000038,0.7706122399999913 C5.211505900000002,0.7706122399999913 6.226734300000004,1.724081599999991 6.226734300000004,2.912653099999993 L6.226734300000004,3.7224489999999903 L1.7597293000000036,3.7224489999999903 L1.7597293000000036,2.912653099999993 C1.7597293000000036,1.7371428999999914 2.774957700000005,0.7706122399999913 3.9932318000000038,0.7706122399999913 L3.9932318000000038,0.7706122399999913ZM4.006768200000021,5.407346899999993 C4.426395900000021,5.407346899999993 4.7648054000000215,5.7338775999999925 4.7648054000000215,6.138775499999994 C4.7648054000000215,6.386938799999992 4.642978000000021,6.556734699999993 4.453468700000023,6.687346899999994 L4.670050800000023,7.902040799999995 L3.3434856000000224,7.902040799999995 L3.5600677000000225,6.700408199999991 C3.3705584000000215,6.5697958999999955 3.2487310000000207,6.373877599999993 3.2487310000000207,6.138775499999994 C3.2487310000000207,5.7338775999999925 3.5871404000000204,5.407346899999993 4.006768200000021,5.407346899999993 L4.006768200000021,5.407346899999993ZM3.9932318,0 C2.3282571999999995,0 0.9475465000000014,1.3061223999999996 0.9475465000000014,2.9126531 L0.9475465000000014,3.7224489999999975 L0.4602368999999982,3.7224489999999975 C0.18950929999999744,3.7224489999999975 0,4.048979599999999 0,4.3102041 L0,9.234285700000001 C0,9.495510199999998 0.18950929999999744,9.600000000000001 0.4602368999999982,9.600000000000001 L7.5803723000000005,9.600000000000001 C7.8510998,9.600000000000001 8,9.495510199999998 8,9.234285700000001 L8,4.3102041 C7.9864636,4.048979599999999 7.824027099999999,3.7224489999999975 7.566835900000001,3.7224489999999975 L7.038917100000003,3.7224489999999975 L7.038917100000003,2.9126531 C7.038917099999999,1.3061223999999996 5.658206400000001,0 3.9932318,0 L3.9932318,0Z"
+                            ></path>
+                          </defs>
+                          <g transform="translate(0, 0) ">
+                            <use
+                              xlink:href="#path-0"
+                              fill="currentColor"
+                              fill-opacity="1"
+                            ></use>
+                          </g>
+                        </svg>
+                      </span>
+                      Payment secured via
+                      <span id="securedbytext">Flutterwave</span><br />Official
+                      Uber partner
+                    </span>
+                  </span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Intro view for checkout form -->
+          <div class="checkout__container__intro" id="intro-container">
+            <div class="checkout__container__intro__header">
+              <div class="checkout__container__intro__header__left show-xs">
+                <div class="badge">
+                  <svg height="9.599999999999909" width="8">
+                    <defs>
+                      <path
+                        id="path-0"
+                        opacity="1"
+                        d="M3.9932318000000038,0.7706122399999913 C5.211505900000002,0.7706122399999913 6.226734300000004,1.724081599999991 6.226734300000004,2.912653099999993 L6.226734300000004,3.7224489999999903 L1.7597293000000036,3.7224489999999903 L1.7597293000000036,2.912653099999993 C1.7597293000000036,1.7371428999999914 2.774957700000005,0.7706122399999913 3.9932318000000038,0.7706122399999913 L3.9932318000000038,0.7706122399999913ZM4.006768200000021,5.407346899999993 C4.426395900000021,5.407346899999993 4.7648054000000215,5.7338775999999925 4.7648054000000215,6.138775499999994 C4.7648054000000215,6.386938799999992 4.642978000000021,6.556734699999993 4.453468700000023,6.687346899999994 L4.670050800000023,7.902040799999995 L3.3434856000000224,7.902040799999995 L3.5600677000000225,6.700408199999991 C3.3705584000000215,6.5697958999999955 3.2487310000000207,6.373877599999993 3.2487310000000207,6.138775499999994 C3.2487310000000207,5.7338775999999925 3.5871404000000204,5.407346899999993 4.006768200000021,5.407346899999993 L4.006768200000021,5.407346899999993ZM3.9932318,0 C2.3282571999999995,0 0.9475465000000014,1.3061223999999996 0.9475465000000014,2.9126531 L0.9475465000000014,3.7224489999999975 L0.4602368999999982,3.7224489999999975 C0.18950929999999744,3.7224489999999975 0,4.048979599999999 0,4.3102041 L0,9.234285700000001 C0,9.495510199999998 0.18950929999999744,9.600000000000001 0.4602368999999982,9.600000000000001 L7.5803723000000005,9.600000000000001 C7.8510998,9.600000000000001 8,9.495510199999998 8,9.234285700000001 L8,4.3102041 C7.9864636,4.048979599999999 7.824027099999999,3.7224489999999975 7.566835900000001,3.7224489999999975 L7.038917100000003,3.7224489999999975 L7.038917100000003,2.9126531 C7.038917099999999,1.3061223999999996 5.658206400000001,0 3.9932318,0 L3.9932318,0Z"
+                      ></path>
+                    </defs>
+                    <g transform="translate(0, 0) ">
+                      <use
+                        xlink:href="#path-0"
+                        fill="rgb(130,130,130)"
+                        fill-opacity="1"
+                      ></use>
+                    </g>
+                  </svg>
+                </div>
+                <div
+                  class="badge"
+                  data-label-en="Secured by Flutterwave"
+                  data-label-fr="Sécurisé par Flutterwave"
+                >
+                  Secured by Flutterwave
+                </div>
+              </div>
+              <div
+                id="mobile-close-btn"
+                class="checkout__container__intro__header__right"
+              >
+                <span class="show-xs">Close Payment</span>
+              </div>
+              <div class="clearfix"></div>
+            </div>
+            <div class="checkout__container__intro__body">
+              <div class="checkout__container__intro__body__paymentdetails">
+                <div
+                  class="checkout__container__intro__body__paymentdetails__left"
+                >
+                  <div class="merchantlogo__intro">
+                    <img id="intro-merchant-logo" src="" alt="" />
+                  </div>
+                </div>
+                <div
+                  class="checkout__container__intro__body__paymentdetails__right"
+                >
+                  <p
+                    class="checkout__container__intro__body__paymentdetails__amount"
+                    id="intro-payment-amount"
+                  ></p>
+                  <p
+                    id="intro-customer-email"
+                    class="checkout__container__intro__body__paymentdetails__customeremail"
+                  ></p>
+                  <!-- Currency Switcher here -->
+                  <div id="currency-selector-home-wrapper"></div>
+                </div>
+                <div class="clearfix"></div>
+              </div>
+
+              <div class="checkout__container__intro__body__title">
+                <p>
+                  How would <br />
+                  you like to pay?
+                </p>
+
+                <div class="checkout__container__intro__body__line"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- The selected/current payment method. They are all hidden by default and shown by using JS -->
+          <div
+            class="checkout__container__option hide animated fadeIn"
+            id="option-container"
+          >
+            <div id="site-loader" style="display: none" class="loader">
+              <div>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="60"
+                  height="60"
+                  viewBox="0 0 60 60"
+                >
+                  <path
+                    fill="currentColor"
+                    fill-rule="evenodd"
+                    d="M59.972 26a37.616 37.616 0 0 0-.71-3.455 30.092 30.092 0 0 0-1.446-4.26 30.682 30.682 0 0 0-4.809-7.849 29.483 29.483 0 0 0-7.594-6.389A29.733 29.733 0 0 0 36.292.551C34.63.216 32.956.015 31.255.002a39.08 39.08 0 0 0-3.964.16 30.369 30.369 0 0 0-9.898 2.747 30.882 30.882 0 0 0-7.34 4.848A30.286 30.286 0 0 0 4.4 14.495C2.7 17.28 1.427 20.32.73 23.509c-.562 2.545-.83 5.17-.696 7.782.12 2.532.509 5.063 1.272 7.488a30.823 30.823 0 0 0 1.782 4.5 30.367 30.367 0 0 0 2.464 4.112 30.149 30.149 0 0 0 6.67 6.764 29.967 29.967 0 0 0 18.779 5.827 29.845 29.845 0 0 0 9.724-1.942 29.06 29.06 0 0 0 8.237-4.862c1.232-1.045 2.33-2.224 3.362-3.47 1.045-1.259 1.982-2.585 2.76-4.018a29.445 29.445 0 0 0 1.714-3.817c.24-.643.469-1.286.656-1.956.2-.71.348-1.446.482-2.17.201-1.138.281-2.317.174-3.469-.093.51-.174 1.005-.294 1.5a14.602 14.602 0 0 1-.55 1.688c-.428 1.165-.964 2.29-1.473 3.416a36.09 36.09 0 0 1-2.25 4.125 28.98 28.98 0 0 1-1.353 1.996c-.482.643-1.031 1.259-1.58 1.862a23.257 23.257 0 0 1-3.617 3.268 26.913 26.913 0 0 1-4.3 2.585c-3.026 1.473-6.335 2.357-9.683 2.652a27.72 27.72 0 0 1-10.22-1.018 27.424 27.424 0 0 1-8.72-4.393 27.441 27.441 0 0 1-6.455-6.939c-1.808-2.719-3.054-5.786-3.737-8.987a26.897 26.897 0 0 1-.402-2.532c-.08-.723-.147-1.46-.174-2.196a26.23 26.23 0 0 1 .281-4.581c.496-3.295 1.568-6.47 3.228-9.363a26.813 26.813 0 0 1 5.64-6.885 26.563 26.563 0 0 1 7.607-4.701 25.887 25.887 0 0 1 5.01-1.46 24.97 24.97 0 0 1 2.611-.362c.429-.04.844-.04 1.273-.08.174 0 .348.013.522.013 2.906-.053 5.826.322 8.599 1.192a25.15 25.15 0 0 1 8.237 4.42 25.798 25.798 0 0 1 6.295 7.475 27.988 27.988 0 0 1 2.934 7.795c.134.63.24 1.26.348 1.889a2.11 2.11 0 0 0 .91 1.433c1.045.696 2.505.228 3.014-.897.174-.389.228-.804.161-1.193z"
+                  ></path>
+                </svg>
+                <p
+                  data-label-en="Processing payment. Do not close modal."
+                  data-label-fr="Traitement du paiement. Ne fermez pas la fenêtre."
+                >
+                  Processing payment. Do not close modal.
+                </p>
+              </div>
+            </div>
+
+            <!-- header -->
+            <div
+              class="checkout__container__option__header checkout__container__option__header__web"
+              id="option-container-header"
+            >
+              <!-- mobile header -->
+              <div class="show-xs">
+                <!-- current payment method title (dynamically shown with JS) -->
+                <div
+                  class="checkout__container__option__header__left"
+                  id="current-method"
+                >
+                  <!-- Pay with Card -->
+                </div>
+
+                <!-- This is the dropdown icon that goes back to intro page -->
+                <div class="checkout__container__option__header__right">
+                  <!-- Currency Switcher here -->
+                  <div id="currency-selector-mobile-wrapper"></div>
+                </div>
+                <div class="clearfix"></div>
+              </div>
+
+              <!-- web header -->
+              <div class="hide-xs">
+                <!-- current payment method title (dynamically shown with JS) -->
+                <div
+                  class="checkout__container__option__header__left"
+                  id="current-method"
+                >
+                  <div class="merchantlogo__web">
+                    <img id="option-merchant-logo-md" src="" alt="" />
+                  </div>
+                </div>
+
+                <!-- This is the ssdropdown icon that goes back to intro page -->
+                <div class="checkout__container__option__header__right">
+                  <p id="merchant-name"></p>
+                </div>
+
+                <div class="clearfix"></div>
+              </div>
+            </div>
+
+            <!-- body -->
+            <div
+              class="checkout__container__option__body"
+              id="option-container-body"
+            >
+              <div class="checkout__container__option__body__paymentdetails">
+                <!-- mobile payment details -->
+                <div class="show-xs">
+                  <!-- Merchant's Logo -->
+                  <div
+                    class="checkout__container__option__body__paymentdetails__left"
+                  >
+                    <div class="merchantlogo__mobile">
+                      <img id="option-merchant-logo-xs" src="" alt="" />
+                    </div>
+                  </div>
+
+                  <!-- Customer's details -->
+                  <div
+                    class="checkout__container__option__body__paymentdetails__right"
+                  >
+                    <div class="width100">
+                      <p
+                        class="checkout__container__option__body__paymentdetails__amount"
+                        id="option-payment-amount"
+                      ></p>
+                      <p
+                        class="checkout__container__option__body__paymentdetails__customeremail"
+                        id="option-customer-email"
+                      ></p>
+                    </div>
+                  </div>
+                  <div class="clearfix"></div>
+                  <div id="currency-conversion-mobile-wrapper"></div>
+                </div>
+
+                <!-- web payment details -->
+                <div class="hide-xs">
+                  <!-- Merchant's Logo -->
+                  <div
+                    class="checkout__container__option__body__paymentdetails__left"
+                  >
+                    <p
+                      class="checkout__container__option__body__paymentdetails__amount"
+                      id="option-payment-amount-xs"
+                    ></p>
+                    <p
+                      class="checkout__container__option__body__paymentdetails__customeremail"
+                      id="option-customer-email-xs"
+                    ></p>
+                  </div>
+
+                  <!-- Customer's details -->
+                  <div
+                    class="checkout__container__option__body__paymentdetails__right"
+                  >
+                    <div id="currency-selector-wrapper"></div>
+                    <div id="currency-conversion-wrapper"></div>
+
+                    <!-- <p class="checkout__container__option__body__paymentdetails__customeremail" id="option-customer-email-xs"></p> -->
+                  </div>
+                  <div class="clearfix"></div>
+                </div>
+              </div>
+
+              <div id="converted-display-amount-notice"></div>
+
+              <div id="chosen-payment-method-option">
+                <!-- card form view -->
+                <div
+                  class="checkout__container__option__body__paymentfield hide animated fadeIn chosen-payment-option"
+                  id="card-method"
+                >
+                  <div id="card-method-error"></div>
+
+                  <div id="card-method-inner">
+                    <!-- form fields to enter card details -->
+                    <div class="card-entry-state" id="paymentform">
+                      <form class="">
+                        <div class="noamount"></div>
+
+                        <div class="form-control">
+                          <input
+                            id="card-number"
+                            name="cardNumber"
+                            class="no-b-b-radius m-b-none"
+                            type="tel"
+                            inputmode="numeric"
+                            placeholder="0000 0000 0000 0000"
+                            maxlength="26"
+                            required=""
+                            value=""
+                          />
+                          <label for="card-number">Card Number</label>
+                        </div>
+                        <div class="form-row">
+                          <div class="form-row__left">
+                            <div class="form-control">
+                              <input
+                                id="expiration"
+                                name="expiration"
+                                class="no-b-r-radius"
+                                type="tel"
+                                inputmode="numeric"
+                                placeholder="MM / YY"
+                                maxlength="7"
+                                required=""
+                                value=""
+                              />
+                              <label for="expiration">valid till</label>
+                            </div>
+                          </div>
+                          <div class="form-row__right">
+                            <div class="form-control">
+                              <div
+                                id="cvv_popover"
+                                class="popover animated fadeIn"
+                              >
+                                <div class="popover__arrow"></div>
+                                <div class="popover__content">
+                                  The CVV is a 3 digit security code located at
+                                  the back of your card.
+                                </div>
+                              </div>
+
+                              <span id="cvv_what_text" class="cvv_what"
+                                >What is this?</span
+                              >
+                              <input
+                                id="cvv"
+                                class="no-b-l-radius"
+                                name="cvv"
+                                type="password"
+                                inputmode="numeric"
+                                placeholder="123"
+                                maxlength="4"
+                                required=""
+                              />
+                              <label for="cvv">CVV</label>
+                            </div>
+                          </div>
+                          <div class="clearfix"></div>
+                        </div>
+
+                        <div
+                          class="checkbox ___remember-card-checkbox"
+                          id="remember-card"
+                          style="position: relative; margin-bottom: 16px"
+                        >
+                          <input
+                            type="checkbox"
+                            id="remember-me-check"
+                            class="checkbox__input"
+                            aria-described-by="remember-description"
+                          />
+                          <label
+                            for="remember-me-check"
+                            class="checkbox__label remember__label"
+                            id="checkbox-label"
+                            >Remember this card next time</label
+                          >
+                          <span
+                            class="checkbox__toggler"
+                            role="presentation"
+                          ></span>
+
+                          <span
+                            class="remember__description-icon"
+                            role="presentation"
+                            id="remember-description-icon"
+                          >
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              viewBox="0 0 24 24"
+                              width="24"
+                              height="24"
+                            >
+                              <path
+                                d="M12 22a10 10 0 110-20 10 10 0 010 20zm0-2a8 8 0 100-16 8 8 0 000 16zm0-9a1 1 0 011 1v4a1 1 0 01-2 0v-4a1 1 0 011-1zm0-4a1 1 0 110 2 1 1 0 010-2z"
+                                fill="#f5a623"
+                              ></path>
+                            </svg>
+                          </span>
+
+                          <div
+                            id="remember-description"
+                            class="remember__description"
+                          >
+                            <span
+                              class="remember__description-heading"
+                              role="heading"
+                              >Why remember your card?</span
+                            >
+                            <ul
+                              class="remember__description-benefits"
+                              role="group"
+                            >
+                              <li class="remember__description-benefit">
+                                You don't need to enter card details every time
+                              </li>
+                              <li class="remember__description-benefit">
+                                You can also use our <strong>*444#</strong> to
+                                recharge securely with the same card
+                              </li>
+                              <li class="remember__description-benefit">
+                                You still need to authenticate each transaction
+                                with your secure PIN
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+
+                        <!-- input for mobile number for remember card -->
+
+                        <div
+                          class="remember-card-details animated fadeIn"
+                          style="display: none"
+                          id="remember-details"
+                        >
+                          <div class="form-control">
+                            <input
+                              id="save_phone_number"
+                              name="savePhoneNumber"
+                              minlength="10"
+                              maxlength="15"
+                              type="tel"
+                              pattern="\+?[0-9]+"
+                              value=""
+                            />
+                            <label for="save_phone_number">Phone Number</label>
+                          </div>
+
+                          <div class="form-control">
+                            <input
+                              id="save_email"
+                              name="saveEmail"
+                              type="email"
+                              value=""
+                            />
+                            <label for="save_email">Email Address</label>
+                          </div>
+                        </div>
+
+                        <div class="form-control">
+                          <button type="submit" id="paycard-btn" class="btn">
+                            Pay
+                            <span class="rave-payment-amount"></span>
+                            <div class="btn__icon hide-xs">
+                              <svg
+                                height="19.76264"
+                                width="12.76264"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <path
+                                  d="m3.88131984 3.88131984 5 6-5 6"
+                                  fill="none"
+                                  stroke="#fbeed8"
+                                  stroke-width="1.65"
+                                ></path>
+                              </svg>
+                            </div>
+                          </button>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- card view for EGP/Paymob -->
+                <div
+                  id="card-method-paymob"
+                  class="checkout__container__option__body__paymentfield hide animated fadeIn chosen-payment-option"
+                >
+                  <p
+                    class="checkout__container__option__body__paymentfield__instructions text-center"
+                  >
+                    This payment option is not available on this version of
+                    checkout. Please use a different payment option or contact
+                    the merchant to update to the new checkout version.
+                  </p>
+                </div>
+
+                <!-- enaira form view -->
+                <div
+                  class="checkout__container__option__body__paymentfield hide animated fadeIn chosen-payment-option"
+                  id="enaira-method"
+                >
+                  <div id="enaira-method-error"></div>
+
+                  <div id="enaira-method-inner">
+                    <form id="pay-enaira-form">
+                      <p
+                        class="checkout__container__option__body__paymentfield__instructions text-left"
+                      >
+                        eNaira payment options
+                      </p>
+
+                      <div class="radio__container">
+                        <div class="radio__container-inner">
+                          <input type="radio" name="enaira" id="qr" />
+                          <label for="qr">QR</label>
+                        </div>
+                        <p class="radio__container-footer">
+                          Pay with eNaira QR
+                        </p>
+                        <div class="radio__container-inner">
+                          <input type="radio" name="enaira" id="token" />
+                          <label for="token">Token</label>
+                        </div>
+                        <p class="radio__container-footer">
+                          eNaira token payment
+                        </p>
+                        <div class="radio__container-inner">
+                          <input
+                            type="radio"
+                            name="enaira"
+                            id="wallet"
+                            checked="checked"
+                          />
+                          <label for="wallet">Direct Wallet Debit</label>
+                        </div>
+                        <p class="radio__container-footer">
+                          Pay with Direct Wallet Debit
+                        </p>
+                      </div>
+
+                      <div class="noamount"></div>
+
+                      <div class="form-control">
+                        <button type="submit" id="payenaira-btn" class="btn">
+                          Pay
+                          <span class="rave-payment-amount"></span>
+                          <div class="btn__icon hide-xs">
+                            <svg
+                              height="19.76264"
+                              width="12.76264"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                d="m3.88131984 3.88131984 5 6-5 6"
+                                fill="none"
+                                stroke="#fbeed8"
+                                stroke-width="1.65"
+                              ></path>
+                            </svg>
+                          </div>
+                        </button>
+                      </div>
+                    </form>
+
+                    <div id="wallet--view"></div>
+
+                    <div id="token--view">
+                      <form id="pay-enaira-token-form">
+                        <p
+                          class="checkout__container__option__body__paymentfield__instructions text-center"
+                        >
+                          Please enter your details to make payment
+                        </p>
+
+                        <div class="noamount"></div>
+
+                        <div class="form-control">
+                          <label for="enaira_phone_number">Mobile Number</label>
+                          <input
+                            id="enaira_phone_number"
+                            minlength="11"
+                            maxlength="14"
+                            type="tel"
+                            placeholder="09012345678"
+                            pattern="\+?[0-9]+"
+                            required=""
+                            value=""
+                          />
+                        </div>
+
+                        <div class="form-control">
+                          <label for="enaira_token">Token</label>
+                          <input
+                            id="enaira_token"
+                            placeholder="123456"
+                            pattern="\+?[0-9]+"
+                            required=""
+                            value=""
+                          />
+                        </div>
+
+                        <div
+                          class="api-message-section"
+                          style="position: relative; margin: 20px auto"
+                        >
+                          <svg
+                            width="20"
+                            height="20"
+                            viewBox="0 0 12 12"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              fill-rule="evenodd"
+                              clip-rule="evenodd"
+                              d="M6 12A6 6 0 1 0 6 0a6 6 0 0 0 0 12Z"
+                              fill="#637381"
+                            ></path>
+                            <path
+                              d="m5.72 3.72.06 3.4h.58l.06-3.4h-.7Zm.35 5.14c.29 0 .49-.2.49-.49 0-.28-.2-.49-.49-.49-.28 0-.49.2-.49.5 0 .28.2.48.5.48Z"
+                              fill="#fff"
+                            ></path>
+                          </svg>
+                          <span
+                            style="
+                              font-size: 1.2rem;
+                              width: calc(100% - 32px);
+                              position: absolute;
+                              line-height: 15px;
+                              right: 0;
+                              color: #333333;
+                              font-weight: 500;
+                            "
+                          >
+                            Generate token from your eNaira app
+                          </span>
+                        </div>
+
+                        <div class="form-control">
+                          <button
+                            type="submit"
+                            id="payenaira-token-btn"
+                            class="btn"
+                          >
+                            Pay
+                            <span class="rave-payment-amount"></span>
+                            <div class="btn__icon hide-xs">
+                              <svg
+                                height="19.76264"
+                                width="12.76264"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <path
+                                  d="m3.88131984 3.88131984 5 6-5 6"
+                                  fill="none"
+                                  stroke="#fbeed8"
+                                  stroke-width="1.65"
+                                ></path>
+                              </svg>
+                            </div>
+                          </button>
+                        </div>
+
+                        <div class="form-control">
+                          <a class="text-center go-back enaira-go-back" href="#"
+                            >CHOOSE ANOTHER OPTION</a
+                          >
+                        </div>
+                      </form>
+                    </div>
+
+                    <div id="qr--view"></div>
+                  </div>
+                </div>
+
+                <!-- ussd form view -->
+                <div
+                  class="checkout__container__option__body__paymentfield hide animated fadeIn chosen-payment-option"
+                  id="ussd-method"
+                >
+                  <div id="ussd-method-error"></div>
+
+                  <div id="ussd-method-inner">
+                    <div class="" id="ussd-entry-state">
+                      <p
+                        class="checkout__container__option__body__paymentfield__instructions text-center title-instruction hide"
+                      >
+                        Choose your bank
+                      </p>
+                      <p
+                        class="checkout__container__option__body__paymentfield__instructions text-center ussd-instruction ussd-instruction--large"
+                      >
+                        Please choose your bank to begin payment
+                      </p>
+                      <p
+                        class="checkout__container__option__body__paymentfield__instructions text-center hide ussd-instruction"
+                      >
+                        Please choose your preferred bank to generate a USSD
+                        code for this transaction.
+                      </p>
+
+                      <form id="ussd-form">
+                        <div class="noamount"></div>
+
+                        <div class="form-control">
+                          <div
+                            class="select select--force-show-label select--ussd-bank"
+                          >
+                            <select
+                              class="select__input select__input--selected"
+                              name="selectUSSDBank"
+                              id="ussd_bank"
+                            >
+                              <option selected="selected" disabled="">
+                                Choose Your Bank
+                              </option>
+                              <option value="044">Access Bank</option>
+                              <option value="050">Ecobank</option>
+                              <option value="070">Fidelity Bank</option>
+                              <option value="011">First Bank of Nigeria</option>
+                              <option value="214">
+                                First City Monument Bank (FCMB)
+                              </option>
+                              <option value="058">GTBank</option>
+                              <option value="030">Heritage Bank</option>
+                              <option value="082">Keystone Bank</option>
+                              <option value="221">Stanbic IBTC Bank</option>
+                              <option value="232">Sterling Bank</option>
+                              <option value="032">Union Bank</option>
+                              <option value="033">
+                                United Bank for Africa
+                              </option>
+                              <option value="215">Unity Bank</option>
+                              <option value="090110">
+                                VFD Microfinance Bank
+                              </option>
+                              <option value="035">Wema Bank</option>
+                              <option value="057">Zenith Bank</option>
+                            </select>
+                            <label
+                              class="select__label"
+                              for="ussd_bank"
+                            ></label>
+                            <div class="select__icon">
+                              <svg
+                                height="15"
+                                viewBox="0 0 12 15"
+                                width="12"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <path
+                                  d="m11.8 5.93953099-5.9-5.93953099-5.9 5.93953099zm.0502498 3.14291567-5.90016649 5.93765394-5.9001665-5.93969859h11.80033299z"
+                                  fill="#637381"
+                                  fill-rule="evenodd"
+                                ></path>
+                              </svg>
+                            </div>
+                            <div class="select__icon select__icon--show hide">
+                              <svg width="16" height="10" viewBox="0 0 16 10">
+                                <path
+                                  id="a"
+                                  d="M16 .333v3.084l-8 6.25-8-6.25V.333l8 6.25z"
+                                  fill="currentColor"
+                                ></path>
+                              </svg>
+                            </div>
+                          </div>
+                        </div>
+
+                        <!-- <div class="form-control">
+                                                <input oninput="this.value = this.value.replace(/[^0-9]/g, '')" id="ussd_account_number" type="tel" inputmode="numeric" pattern="[0-9]*" maxlength="10">
+                                                <label for="ussd_account_number">Account Number</label>
+                                            </div> -->
+                        <!-- <div class="form-control">
+                                                <input oninput="this.value = this.value.replace(/[^0-9]/g, '')" id="ussd_phone_number" minlength="11" type="tel">
+                                                <label for="ussd_phone_number">Phone Number</label>
+                                            </div> -->
+
+                        <!-- <div class="form-control">
+                                                <button type="submit" id="payussd-btn" class="btn">
+                                                Pay
+                                                <span class="rave-payment-amount"></span>
+                                                <div class="btn__icon hide-xs">
+                                                    <svg height="19.76264" width="12.76264" xmlns="http://www.w3.org/2000/svg"><path d="m3.88131984 3.88131984 5 6-5 6" fill="none" stroke="#fbeed8" stroke-width="1.65"/></svg>
+                                                </div>
+                                            </button>
+                                            </div> -->
+                      </form>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- applepay form view -->
+                <div
+                  class="checkout__container__option__body__paymentfield hide animated fadeIn chosen-payment-option"
+                  id="applepay-method"
+                >
+                  <div id="applepay-method-error"></div>
+
+                  <div id="applepay-method-inner">
+                    <form id="applepay-form">
+                      <p
+                        class="checkout__container__option__body__paymentfield__instructions text-center"
+                      >
+                        Please click the button below to pay with Apple&nbsp;Pay
+                      </p>
+
+                      <div class="noamount"></div>
+
+                      <div class="form-control">
+                        <button type="submit" id="payapplepay-btn" class="btn">
+                          Pay
+                          <span class="rave-payment-amount"></span>
+                          <div class="btn__icon hide-xs">
+                            <svg
+                              height="19.76264"
+                              width="12.76264"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                d="m3.88131984 3.88131984 5 6-5 6"
+                                fill="none"
+                                stroke="#fbeed8"
+                                stroke-width="1.65"
+                              ></path>
+                            </svg>
+                          </div>
+                        </button>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+
+                <!-- googlepay form view -->
+                <div
+                  class="checkout__container__option__body__paymentfield hide animated fadeIn chosen-payment-option"
+                  id="googlepay-method"
+                >
+                  <div id="googlepay-method-error"></div>
+
+                  <div id="googlepay-method-inner">
+                    <form id="googlepay-form">
+                      <p
+                        class="checkout__container__option__body__paymentfield__instructions text-center"
+                      >
+                        Please click the button below to pay with
+                        Google&nbsp;Pay
+                      </p>
+
+                      <div class="noamount"></div>
+
+                      <div class="form-control">
+                        <button type="submit" id="paygooglepay-btn" class="btn">
+                          Pay
+                          <span class="rave-payment-amount"></span>
+                          <div class="btn__icon hide-xs">
+                            <svg
+                              height="19.76264"
+                              width="12.76264"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                d="m3.88131984 3.88131984 5 6-5 6"
+                                fill="none"
+                                stroke="#fbeed8"
+                                stroke-width="1.65"
+                              ></path>
+                            </svg>
+                          </div>
+                        </button>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+
+                <!-- qr form view -->
+                <div
+                  class="checkout__container__option__body__paymentfield hide animated fadeIn chosen-payment-option"
+                  id="qr-method"
+                >
+                  <div id="qr-method-error"></div>
+
+                  <div id="qr-method-inner">
+                    <div class="noamount"></div>
+
+                    <div
+                      id="qramountpresent"
+                      class="hide center-loader instructions-loader"
+                    >
+                      <p
+                        class="checkout__container__option__body__paymentfield__instructions title-instruction text-center hide"
+                      >
+                        Fetching QR code
+                      </p>
+                      <p
+                        class="checkout__container__option__body__paymentfield__instructions show-instruction text-center"
+                      >
+                        Please wait, a QR code is being generated for this
+                        transaction at the moment.
+                      </p>
+                      <p
+                        class="checkout__container__option__body__paymentfield__instructions text-center"
+                      >
+                        Please wait...
+                      </p>
+                      <img
+                        class="spin checkout__container__option__body__paymentfield__innerspinner"
+                        src="spinner.svg"
+                        alt=""
+                      />
+                    </div>
+
+                    <div id="qramountnotpresent" class="hide">
+                      <div class="form-control">
+                        <button type="button" id="payqr-btn" class="btn">
+                          <!-- Pay
+                                                <span class="rave-payment-amount"></span> -->
+                          Try Again
+                          <div class="btn__icon hide-xs">
+                            <svg
+                              height="19.76264"
+                              width="12.76264"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                d="m3.88131984 3.88131984 5 6-5 6"
+                                fill="none"
+                                stroke="#fbeed8"
+                                stroke-width="1.65"
+                              ></path>
+                            </svg>
+                          </div>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- nqr form view -->
+                <div
+                  class="checkout__container__option__body__paymentfield hide animated fadeIn chosen-payment-option"
+                  id="nqr-method"
+                >
+                  <div id="nqr-method-error"></div>
+
+                  <div id="nqr-method-inner">
+                    <div class="noamount"></div>
+
+                    <div id="nqramountpresent">
+                      <p
+                        class="checkout__container__option__body__paymentfield__instructions text-center"
+                      >
+                        Please wait...
+                      </p>
+
+                      <img
+                        class="spin checkout__container__option__body__paymentfield__innerspinner"
+                        src="spinner.svg"
+                        alt=""
+                      />
+                    </div>
+
+                    <div id="nqramountnotpresent" class="hide">
+                      <div class="form-control">
+                        <button type="button" id="paynqr-btn" class="btn">
+                          Pay
+                          <span class="rave-payment-amount"></span>
+                          <div class="btn__icon hide-xs">
+                            <svg
+                              height="19.76264"
+                              width="12.76264"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                d="m3.88131984 3.88131984 5 6-5 6"
+                                fill="none"
+                                stroke="#fbeed8"
+                                stroke-width="1.65"
+                              ></path>
+                            </svg>
+                          </div>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- paypal form view -->
+                <div
+                  class="checkout__container__option__body__paymentfield hide animated fadeIn chosen-payment-option"
+                  id="paypal-old-method"
+                >
+                  <div id="paypal-old-method-error"></div>
+
+                  <div id="paypal-old-method-inner">
+                    <div class="noamount"></div>
+
+                    <div
+                      id="paypal-old-instructions"
+                      class="hide center-loader instructions-loader hide"
+                    >
+                      <p
+                        class="checkout__container__option__body__paymentfield__instructions title-instruction text-center hide"
+                      >
+                        Initializing PayPal payment
+                      </p>
+                      <p
+                        class="checkout__container__option__body__paymentfield__instructions show-instruction text-center hide"
+                      >
+                        Please wait a little while for your payment to be
+                        initialized.
+                      </p>
+                      <p
+                        class="checkout__container__option__body__paymentfield__instructions text-center"
+                      >
+                        Initializing PayPal Payment...
+                      </p>
+                      <img
+                        class="spin checkout__container__option__body__paymentfield__innerspinner"
+                        src="spinner.svg"
+                        alt=""
+                      />
+                    </div>
+
+                    <div
+                      id="redirect-paypal-old-btn-container"
+                      class="form-control form-control--unbounded"
+                    >
+                      <p
+                        class="checkout__container__option__body__paymentfield__instructions title-instruction text-center hide"
+                      >
+                        Checkout to PayPal
+                      </p>
+                      <p
+                        class="checkout__container__option__body__paymentfield__instructions show-instruction text-center"
+                      >
+                        You will be redirected to PayPal to complete this
+                        payment.
+                      </p>
+                      <button type="button" class="btn paypal-btn">
+                        Proceed to
+                        <svg
+                          class="paypal-btn__logo-text"
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 566.93 137.35"
+                        >
+                          <path
+                            d="M49.52 32.33h38.74c20.8 0 28.63 10.53 27.42 26C113.68 83.88 98.24 98 77.76 98H67.37c-2.81 0-4.7 1.86-5.46 6.9l-4.39 29.3c-.29 1.9-1.29 3-2.79 3.16H30.39c-2.29 0-3.1-1.75-2.51-5.54l14.84-93.93c.59-3.77 2.65-5.56 6.8-5.56z"
+                            fill="#009ee3"
+                            fill-rule="evenodd"
+                          ></path>
+                          <path
+                            d="M217.66 30.59c13.07 0 25.13 7.09 23.48 24.77-2 21-13.25 32.62-31 32.67h-15.5c-2.23 0-3.31 1.81-3.89 5.55l-3 19.07c-.45 2.88-1.93 4.31-4.12 4.31H169.2c-2.3 0-3.1-1.48-2.59-4.76l11.91-76.45c.59-3.76 2-5.16 4.57-5.16zm-23.51 40.92h11.75c7.35-.28 12.24-5.37 12.73-14.55.3-5.67-3.53-9.73-9.62-9.7l-11.07.05-3.79 24.19zm86.21 39.58c1.32-1.19 2.66-1.82 2.47-.34l-.47 3.54c-.24 1.85.49 2.84 2.22 2.84h12.81c2.16 0 3.21-.88 3.75-4.21l7.9-49.59c.39-2.49-.21-3.71-2.1-3.71h-14.1c-1.27 0-1.88.72-2.22 2.66l-.52 3.05c-.27 1.59-1 1.87-1.68.26-2.39-5.66-8.49-8.2-17-8-19.78.4-33.11 15.41-34.53 34.66-1.11 14.88 9.56 26.57 23.62 26.57 10.19 0 14.76-3 19.89-7.71zm-10.73-7.63c-8.51 0-14.44-6.79-13.2-15.11s9.19-15.11 17.7-15.11 14.44 6.78 13.21 15.11-9.19 15.11-17.71 15.11zm64.51-44h-12.95c-2.69 0-3.78 2-2.92 4.46l16.14 47.27-15.89 22.48c-1.32 1.87-.3 3.59 1.57 3.59h14.61a4.49 4.49 0 004.35-2.13l49.63-71.21c1.53-2.19.81-4.48-1.7-4.49h-13.83c-2.37 0-3.32.93-4.68 2.91l-20.71 30-9.24-30.06c-.54-1.82-1.89-2.82-4.38-2.82z"
+                            fill="#113984"
+                            fill-rule="evenodd"
+                          ></path>
+                          <path
+                            d="M440.32 30.59c13.08 0 25.14 7.09 23.48 24.77-1.95 21-13.25 32.62-31 32.67h-15.5c-2.23 0-3.31 1.81-3.89 5.55l-3 19.07c-.46 2.88-1.93 4.31-4.12 4.31h-14.42c-2.3 0-3.1-1.48-2.59-4.76l11.93-76.45c.58-3.76 2-5.16 4.57-5.16zm-23.5 40.92h11.75c7.35-.28 12.24-5.37 12.73-14.55.3-5.67-3.53-9.73-9.63-9.7l-11.06.05-3.79 24.19zm86.21 39.58c1.32-1.19 2.66-1.82 2.47-.34l-.47 3.54c-.25 1.85.49 2.84 2.21 2.84h12.82c2.16 0 3.21-.88 3.74-4.21l7.9-49.59c.4-2.49-.2-3.71-2.1-3.71h-14.08c-1.27 0-1.89.72-2.22 2.66l-.52 3.05c-.27 1.59-1 1.87-1.68.26-2.39-5.66-8.49-8.2-17.05-8-19.77.4-33.1 15.41-34.53 34.66-1.1 14.88 9.57 26.57 23.62 26.57 10.2 0 14.76-3 19.9-7.71zm-10.73-7.63c-8.51 0-14.44-6.79-13.2-15.11s9.19-15.11 17.7-15.11 14.44 6.78 13.2 15.11-9.19 15.11-17.7 15.11zm59.13 13.74h-14.79a1.75 1.75 0 01-1.82-2.05l13-82.36a2.56 2.56 0 012.46-2h14.8a1.74 1.74 0 011.81 2l-13 82.36a2.55 2.55 0 01-2.46 2.07z"
+                            fill="#009ee3"
+                            fill-rule="evenodd"
+                          ></path>
+                          <path
+                            d="M25.24 0h38.79C74.95 0 87.9.36 96.57 8c5.79 5.11 8.83 13.24 8.13 22-2.38 29.61-20.1 46.2-43.85 46.2H41.72c-3.25 0-5.41 2.15-6.33 8l-5.34 33.95c-.34 2.2-1.3 3.5-3 3.66H3.12c-2.65 0-3.59-2-2.9-6.42L17.42 6.46C18.11 2.08 20.52 0 25.24 0z"
+                            fill="#113984"
+                            fill-rule="evenodd"
+                          ></path>
+                          <path
+                            d="M35.95 80.75l6.77-42.86c.59-3.77 2.65-5.56 6.75-5.56h38.74c6.41 0 11.6 1 15.66 2.85-3.9 26.35-20.94 41-43.27 41H41.52c-2.56 0-4.44 1.28-5.57 4.57z"
+                            fill="#172c70"
+                            fill-rule="evenodd"
+                          ></path>
+                        </svg>
+                      </button>
+
+                      <!-- <div class="saved__cards__anothercard">
+                                            <a href="https://www.paypal.com/al/webapps/mpp/merchant-fees" target="_blank" rel="noreferrer nofollow external" class="text-rave-color link--external">Click for more on PayPal Pricing</a>
+                                        </div> -->
+                    </div>
+
+                    <div
+                      id="pay-paypal-old-btn-container"
+                      class="form-control hide"
+                    >
+                      <button type="button" class="btn paypal-btn">
+                        Try again with
+                        <svg
+                          class="paypal-btn__logo-text"
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 566.93 137.35"
+                        >
+                          <path
+                            d="M49.52 32.33h38.74c20.8 0 28.63 10.53 27.42 26C113.68 83.88 98.24 98 77.76 98H67.37c-2.81 0-4.7 1.86-5.46 6.9l-4.39 29.3c-.29 1.9-1.29 3-2.79 3.16H30.39c-2.29 0-3.1-1.75-2.51-5.54l14.84-93.93c.59-3.77 2.65-5.56 6.8-5.56z"
+                            fill="#009ee3"
+                            fill-rule="evenodd"
+                          ></path>
+                          <path
+                            d="M217.66 30.59c13.07 0 25.13 7.09 23.48 24.77-2 21-13.25 32.62-31 32.67h-15.5c-2.23 0-3.31 1.81-3.89 5.55l-3 19.07c-.45 2.88-1.93 4.31-4.12 4.31H169.2c-2.3 0-3.1-1.48-2.59-4.76l11.91-76.45c.59-3.76 2-5.16 4.57-5.16zm-23.51 40.92h11.75c7.35-.28 12.24-5.37 12.73-14.55.3-5.67-3.53-9.73-9.62-9.7l-11.07.05-3.79 24.19zm86.21 39.58c1.32-1.19 2.66-1.82 2.47-.34l-.47 3.54c-.24 1.85.49 2.84 2.22 2.84h12.81c2.16 0 3.21-.88 3.75-4.21l7.9-49.59c.39-2.49-.21-3.71-2.1-3.71h-14.1c-1.27 0-1.88.72-2.22 2.66l-.52 3.05c-.27 1.59-1 1.87-1.68.26-2.39-5.66-8.49-8.2-17-8-19.78.4-33.11 15.41-34.53 34.66-1.11 14.88 9.56 26.57 23.62 26.57 10.19 0 14.76-3 19.89-7.71zm-10.73-7.63c-8.51 0-14.44-6.79-13.2-15.11s9.19-15.11 17.7-15.11 14.44 6.78 13.21 15.11-9.19 15.11-17.71 15.11zm64.51-44h-12.95c-2.69 0-3.78 2-2.92 4.46l16.14 47.27-15.89 22.48c-1.32 1.87-.3 3.59 1.57 3.59h14.61a4.49 4.49 0 004.35-2.13l49.63-71.21c1.53-2.19.81-4.48-1.7-4.49h-13.83c-2.37 0-3.32.93-4.68 2.91l-20.71 30-9.24-30.06c-.54-1.82-1.89-2.82-4.38-2.82z"
+                            fill="#113984"
+                            fill-rule="evenodd"
+                          ></path>
+                          <path
+                            d="M440.32 30.59c13.08 0 25.14 7.09 23.48 24.77-1.95 21-13.25 32.62-31 32.67h-15.5c-2.23 0-3.31 1.81-3.89 5.55l-3 19.07c-.46 2.88-1.93 4.31-4.12 4.31h-14.42c-2.3 0-3.1-1.48-2.59-4.76l11.93-76.45c.58-3.76 2-5.16 4.57-5.16zm-23.5 40.92h11.75c7.35-.28 12.24-5.37 12.73-14.55.3-5.67-3.53-9.73-9.63-9.7l-11.06.05-3.79 24.19zm86.21 39.58c1.32-1.19 2.66-1.82 2.47-.34l-.47 3.54c-.25 1.85.49 2.84 2.21 2.84h12.82c2.16 0 3.21-.88 3.74-4.21l7.9-49.59c.4-2.49-.2-3.71-2.1-3.71h-14.08c-1.27 0-1.89.72-2.22 2.66l-.52 3.05c-.27 1.59-1 1.87-1.68.26-2.39-5.66-8.49-8.2-17.05-8-19.77.4-33.1 15.41-34.53 34.66-1.1 14.88 9.57 26.57 23.62 26.57 10.2 0 14.76-3 19.9-7.71zm-10.73-7.63c-8.51 0-14.44-6.79-13.2-15.11s9.19-15.11 17.7-15.11 14.44 6.78 13.2 15.11-9.19 15.11-17.7 15.11zm59.13 13.74h-14.79a1.75 1.75 0 01-1.82-2.05l13-82.36a2.56 2.56 0 012.46-2h14.8a1.74 1.74 0 011.81 2l-13 82.36a2.55 2.55 0 01-2.46 2.07z"
+                            fill="#009ee3"
+                            fill-rule="evenodd"
+                          ></path>
+                          <path
+                            d="M25.24 0h38.79C74.95 0 87.9.36 96.57 8c5.79 5.11 8.83 13.24 8.13 22-2.38 29.61-20.1 46.2-43.85 46.2H41.72c-3.25 0-5.41 2.15-6.33 8l-5.34 33.95c-.34 2.2-1.3 3.5-3 3.66H3.12c-2.65 0-3.59-2-2.9-6.42L17.42 6.46C18.11 2.08 20.52 0 25.24 0z"
+                            fill="#113984"
+                            fill-rule="evenodd"
+                          ></path>
+                          <path
+                            d="M35.95 80.75l6.77-42.86c.59-3.77 2.65-5.56 6.75-5.56h38.74c6.41 0 11.6 1 15.66 2.85-3.9 26.35-20.94 41-43.27 41H41.52c-2.56 0-4.44 1.28-5.57 4.57z"
+                            fill="#172c70"
+                            fill-rule="evenodd"
+                          ></path>
+                        </svg>
+                      </button>
+
+                      <!-- <div class="saved__cards__anothercard">
+                                            <a href="https://www.paypal.com/al/webapps/mpp/merchant-fees" target="_blank" rel="noreferrer nofollow external" class="text-rave-color link--external">Click for more on PayPal Pricing</a>
+                                        </div> -->
+                    </div>
+                  </div>
+                </div>
+
+                <!-- paypal form view -->
+                <div
+                  class="checkout__container__option__body__paymentfield hide animated fadeIn chosen-payment-option"
+                  id="paypal-method"
+                >
+                  <div id="paypal-method-error"></div>
+
+                  <div id="paypal-method-inner">
+                    <div class="noamount"></div>
+                    <p
+                      id="paypal-method-note"
+                      class="checkout__container__option__body__paymentfield__instructions show-instruction text-center hide"
+                    >
+                      You will be redirected to PayPal to complete this payment
+                      using your selected funding method.
+                    </p>
+                  </div>
+                </div>
+
+                <!-- mobile money form view -->
+                <div
+                  class="checkout__container__option__body__paymentfield hide animated fadeIn chosen-payment-option"
+                  id="mmoney-method"
+                >
+                  <div id="mmoney-method-error"></div>
+
+                  <div id="mmoney-instructions"></div>
+
+                  <div id="mmoney-method-inner">
+                    <form id="mmoney-form">
+                      <div class="noamount"></div>
+
+                      <div class="form-control">
+                        <div class="select">
+                          <select
+                            class="select__input"
+                            name="selectMmoney"
+                            id="mmoney_telco"
+                            required=""
+                          >
+                            <!-- <option selected disabled>CLICK HERE TO CHOOSE</option> -->
+                            <option selected="selected" disabled="" value="">
+                              CLICK HERE TO CHOOSE
+                            </option>
+                            <option value="MTN" data-network="MTN">MTN</option>
+                            <option value="TIGO" data-network="AIRTEL">
+                              AIRTEL - TIGO
+                            </option>
+                            <option value="VODAFONE" data-network="VODACOM">
+                              VODAFONE
+                            </option>
+                            <!-- <option value="AIRTEL">AIRTEL</option> -->
+                          </select>
+                          <label class="select__label" for="mmoney_telco"
+                            >Choose Network</label
+                          >
+                          <div class="select__icon">
+                            <svg
+                              height="15"
+                              viewBox="0 0 12 15"
+                              width="12"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                d="m11.8 5.93953099-5.9-5.93953099-5.9 5.93953099zm.0502498 3.14291567-5.90016649 5.93765394-5.9001665-5.93969859h11.80033299z"
+                                fill="#637381"
+                                fill-rule="evenodd"
+                              ></path>
+                            </svg>
+                          </div>
+                          <div class="select__icon select__icon--show hide">
+                            <svg width="16" height="10" viewBox="0 0 16 10">
+                              <path
+                                id="a"
+                                d="M16 .333v3.084l-8 6.25-8-6.25V.333l8 6.25z"
+                                fill="currentColor"
+                              ></path>
+                            </svg>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="form-control hide" id="voucher-field">
+                        <input
+                          id="mmoney_voucher_number"
+                          type="text"
+                          value=""
+                        />
+                        <label for="mmoney_voucher_number">Voucher</label>
+                      </div>
+
+                      <div class="form-control form--control">
+                        <input
+                          id="mmoney_phone_number"
+                          minlength="10"
+                          maxlength="15"
+                          type="tel"
+                          pattern="\+?[0-9]+"
+                          value=""
+                        />
+                        <label for="mmoney_phone_number">Phone Number</label>
+                      </div>
+
+                      <div class="form-control">
+                        <input
+                          id="mmoney-phone-number"
+                          minlength="10"
+                          maxlength="15"
+                          type="tel"
+                          pattern="\+?[0-9]+"
+                          required=""
+                          value=""
+                        />
+                        <label for="mmoney-phone-number">Phone Number</label>
+                      </div>
+
+                      <div class="form-control">
+                        <button type="submit" id="paymmoney-btn" class="btn">
+                          Pay <span class="rave-payment-amount"></span>
+                          <div class="btn__icon hide-xs">
+                            <svg
+                              height="19.76264"
+                              width="12.76264"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                d="m3.88131984 3.88131984 5 6-5 6"
+                                fill="none"
+                                stroke="#fbeed8"
+                                stroke-width="1.65"
+                              ></path>
+                            </svg>
+                          </div>
+                        </button>
+                        <button
+                          type="button"
+                          id="paymmoney_btn"
+                          class="btn btn--overlay"
+                        >
+                          Pay <span class="rave-payment-amount"></span>
+                          <div class="btn__icon hide-xs">
+                            <svg
+                              height="19.76264"
+                              width="12.76264"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                d="m3.88131984 3.88131984 5 6-5 6"
+                                fill="none"
+                                stroke="#fbeed8"
+                                stroke-width="1.65"
+                              ></path>
+                            </svg>
+                          </div>
+                        </button>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+
+                <!-- mobile money zambia form view -->
+                <div
+                  class="checkout__container__option__body__paymentfield hide animated fadeIn chosen-payment-option"
+                  id="mmoneyzm-method"
+                >
+                  <div id="mmoneyzm-method-error"></div>
+
+                  <div id="mmoneyzm-instructions"></div>
+
+                  <div id="mmoneyzm-method-inner">
+                    <form id="mmoneyzm-form">
+                      <div class="noamount"></div>
+
+                      <div class="form-control">
+                        <div class="select">
+                          <select
+                            class="select__input"
+                            name="selectMmoney"
+                            id="mmoneyzm_telco"
+                            required=""
+                          >
+                            <option value="Airtel">AIRTEL</option>
+                            <option value="MTN" selected="selected">MTN</option>
+                            <option value="Zamtel">ZAMTEL</option>
+                          </select>
+                          <label class="select__label" for="mmoneyzm_telco"
+                            >Choose Network</label
+                          >
+                          <div class="select__icon">
+                            <svg
+                              height="15"
+                              viewBox="0 0 12 15"
+                              width="12"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                d="m11.8 5.93953099-5.9-5.93953099-5.9 5.93953099zm.0502498 3.14291567-5.90016649 5.93765394-5.9001665-5.93969859h11.80033299z"
+                                fill="#637381"
+                                fill-rule="evenodd"
+                              ></path>
+                            </svg>
+                          </div>
+                          <div class="select__icon select__icon--show hide">
+                            <svg width="16" height="10" viewBox="0 0 16 10">
+                              <path
+                                id="a"
+                                d="M16 .333v3.084l-8 6.25-8-6.25V.333l8 6.25z"
+                                fill="currentColor"
+                              ></path>
+                            </svg>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="form-control">
+                        <input
+                          id="mmoneyzm_phone_number"
+                          minlength="10"
+                          maxlength="15"
+                          type="tel"
+                          pattern="\+?[0-9]+"
+                          required=""
+                          value=""
+                        />
+                        <label for="mmoneyzm_phone_number">Phone Number</label>
+                      </div>
+
+                      <div class="form-control">
+                        <button type="submit" id="paymmoneyzm-btn" class="btn">
+                          Pay
+                          <span class="rave-payment-amount"></span>
+                          <div class="btn__icon hide-xs">
+                            <svg
+                              height="19.76264"
+                              width="12.76264"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                d="m3.88131984 3.88131984 5 6-5 6"
+                                fill="none"
+                                stroke="#fbeed8"
+                                stroke-width="1.65"
+                              ></path>
+                            </svg>
+                          </div>
+                        </button>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+
+                <!-- mobile money rwanda form view -->
+                <div
+                  class="checkout__container__option__body__paymentfield hide animated fadeIn chosen-payment-option"
+                  id="mmoneyrw-method"
+                >
+                  <div id="mmoneyrw-method-error"></div>
+
+                  <div id="mmoneyrw-instructions"></div>
+
+                  <div id="mmoneyrw-method-inner">
+                    <form id="mmoneyrw-form">
+                      <div class="noamount"></div>
+
+                      <div class="form-control">
+                        <input
+                          id="mmoneyrw_phone_number"
+                          minlength="10"
+                          maxlength="15"
+                          type="tel"
+                          pattern="\+?[0-9]+"
+                          required=""
+                          value=""
+                        />
+                        <label for="mmoneyrw_phone_number">Phone Number</label>
+                      </div>
+
+                      <div class="form-control">
+                        <button type="submit" id="paymmoneyrw-btn" class="btn">
+                          Pay
+                          <span class="rave-payment-amount"></span>
+                          <div class="btn__icon hide-xs">
+                            <svg
+                              height="19.76264"
+                              width="12.76264"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                d="m3.88131984 3.88131984 5 6-5 6"
+                                fill="none"
+                                stroke="#fbeed8"
+                                stroke-width="1.65"
+                              ></path>
+                            </svg>
+                          </div>
+                        </button>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+
+                <!-- mobile money uganda form view -->
+                <div
+                  class="checkout__container__option__body__paymentfield hide animated fadeIn chosen-payment-option"
+                  id="mmoneyug-method"
+                >
+                  <div id="mmoneyug-method-error"></div>
+
+                  <div id="mmoneyug-instructions"></div>
+
+                  <div id="mmoneyug-method-inner">
+                    <p
+                      class="checkout__container__option__body__paymentfield__instructions text-center"
+                    >
+                      Enter your phone number to begin payment.
+                    </p>
+
+                    <form id="mmoneyug-form">
+                      <div class="noamount"></div>
+
+                      <div class="form-control">
+                        <input
+                          id="mmoneyug_phone_number"
+                          minlength="10"
+                          maxlength="15"
+                          type="tel"
+                          pattern="\+?[0-9]+"
+                          required=""
+                          value=""
+                        />
+                        <label for="mmoneyug_phone_number">Phone Number</label>
+                      </div>
+
+                      <div class="form-control">
+                        <button type="submit" id="paymmoneyug-btn" class="btn">
+                          Pay
+                          <span class="rave-payment-amount"></span>
+                          <div class="btn__icon hide-xs">
+                            <svg
+                              height="19.76264"
+                              width="12.76264"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                d="m3.88131984 3.88131984 5 6-5 6"
+                                fill="none"
+                                stroke="#fbeed8"
+                                stroke-width="1.65"
+                              ></path>
+                            </svg>
+                          </div>
+                        </button>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+
+                <!-- mobile money malawi form view -->
+                <div
+                  class="checkout__container__option__body__paymentfield hide animated fadeIn chosen-payment-option"
+                  id="mmoneymw-method"
+                >
+                  <div id="mmoneymw-method-error"></div>
+
+                  <div id="mmoneymw-instructions"></div>
+
+                  <div id="mmoneymw-method-inner">
+                    <form id="mmoneymw-form">
+                      <div class="noamount"></div>
+
+                      <div class="form-control">
+                        <input
+                          id="mmoneymw_phone_number"
+                          minlength="11"
+                          type="tel"
+                          required=""
+                          value=""
+                        />
+                        <label for="mmoneymw_phone_number">Phone Number</label>
+                      </div>
+
+                      <div class="form-control">
+                        <button type="submit" id="paymmoneymw-btn" class="btn">
+                          Pay
+                          <span class="rave-payment-amount"></span>
+                          <div class="btn__icon hide-xs">
+                            <svg
+                              height="19.76264"
+                              width="12.76264"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                d="m3.88131984 3.88131984 5 6-5 6"
+                                fill="none"
+                                stroke="#fbeed8"
+                                stroke-width="1.65"
+                              ></path>
+                            </svg>
+                          </div>
+                        </button>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+
+                <!-- mobile money tanzania form view -->
+                <div
+                  class="checkout__container__option__body__paymentfield hide animated fadeIn chosen-payment-option"
+                  id="mmoneytz-method"
+                >
+                  <div id="mmoneytz-method-error"></div>
+
+                  <div id="mmoneytz-instructions"></div>
+
+                  <div id="mmoneytz-method-inner">
+                    <form id="mmoneytz-form">
+                      <div class="noamount"></div>
+
+                      <div class="form-control">
+                        <input
+                          id="mmoneytz_phone_number"
+                          minlength="10"
+                          maxlength="15"
+                          type="tel"
+                          pattern="\+?[0-9]+"
+                          placeholder="0123456789"
+                          required=""
+                          value=""
+                        />
+                        <label for="mmoneytz_phone_number">Phone Number</label>
+                      </div>
+
+                      <div class="form-control">
+                        <button type="submit" id="paymmoneytz-btn" class="btn">
+                          Pay
+                          <span class="rave-payment-amount"></span>
+                          <div class="btn__icon hide-xs">
+                            <svg
+                              height="19.76264"
+                              width="12.76264"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                d="m3.88131984 3.88131984 5 6-5 6"
+                                fill="none"
+                                stroke="#fbeed8"
+                                stroke-width="1.65"
+                              ></path>
+                            </svg>
+                          </div>
+                        </button>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+
+                <!-- mobile money franco form view -->
+                <div
+                  class="checkout__container__option__body__paymentfield hide animated fadeIn chosen-payment-option"
+                  id="mmoneyfranco-method"
+                >
+                  <div id="mmoneyfranco-method-error"></div>
+
+                  <div id="mmoneyfranco-method-inner">
+                    <form id="mmoneyfranco-form">
+                      <p
+                        class="checkout__container__option__body__paymentfield__instructions text-center"
+                        data-label-en="Please provide your country and mobile information to proceed with this payment."
+                        data-label-fr="Veuillez confirmer votre pays et saisir votre numéro de téléphone pour procéder au paiement."
+                      >
+                        Please provide your country and mobile information to
+                        proceed with this payment.
+                      </p>
+
+                      <div class="noamount"></div>
+
+                      <div class="form-control">
+                        <div class="select">
+                          <label
+                            class="select__label"
+                            for="mmoney_franco_country"
+                            data-label-en="Choose Country"
+                            data-label-fr="Choisissez votre pays"
+                            >Choose Country</label
+                          >
+                          <select
+                            class="select__input"
+                            name="mmoney_franco_country"
+                            id="mmoney_franco_country"
+                            required=""
+                          ></select>
+                        </div>
+                        <div class="select__icon">
+                          <svg
+                            height="15"
+                            viewBox="0 0 12 15"
+                            width="12"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="m11.8 5.93953099-5.9-5.93953099-5.9 5.93953099zm.0502498 3.14291567-5.90016649 5.93765394-5.9001665-5.93969859h11.80033299z"
+                              fill="#637381"
+                              fill-rule="evenodd"
+                            ></path>
+                          </svg>
+                        </div>
+                      </div>
+
+                      <div class="form-control">
+                        <div class="select">
+                          <select
+                            class="select__input"
+                            name="mmoney_franco_network"
+                            id="mmoney_franco_network"
+                            required=""
+                          >
+                            <option
+                              value=""
+                              disabled=""
+                              data-label-en="CLICK HERE TO CHOOSE"
+                              data-label-fr="CLIQUEZ ICI POUR CHOISIR"
+                            >
+                              CLICK HERE TO CHOOSE
+                            </option>
+                          </select>
+                          <label
+                            class="select__label"
+                            for="mmoney_franco_network"
+                            data-label-en="Choose Mobile Operator"
+                            data-label-fr="Choisissez vôtre opérateur mobile"
+                            >Choose Mobile Operator</label
+                          >
+                        </div>
+                        <div class="select__icon">
+                          <svg
+                            height="15"
+                            viewBox="0 0 12 15"
+                            width="12"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="m11.8 5.93953099-5.9-5.93953099-5.9 5.93953099zm.0502498 3.14291567-5.90016649 5.93765394-5.9001665-5.93969859h11.80033299z"
+                              fill="#637381"
+                              fill-rule="evenodd"
+                            ></path>
+                          </svg>
+                        </div>
+                      </div>
+
+                      <div class="form-control">
+                        <input
+                          id="mmoneyfranco_phone_number"
+                          minlength="10"
+                          maxlength="15"
+                          type="tel"
+                          pattern="\+?[0-9]+"
+                          placeholder="123456789"
+                          required=""
+                          value=""
+                        />
+                        <label
+                          for="mmoneyfranco_phone_number"
+                          data-label-en="Phone Number"
+                          data-label-fr="Numéro de téléphone"
+                          >Phone Number</label
+                        >
+                      </div>
+
+                      <div class="form-control hide momo-authorization-form">
+                        <label
+                          for="mmoneyfranco_auth_code"
+                          data-label-en="Authorization Code"
+                          data-label-fr="Code d’autorisation"
+                          >Authorization Code</label
+                        >
+                        <input
+                          class="momo-authorization-form__input"
+                          id="mmoneyfranco_auth_code"
+                          type="tel"
+                          inputmode="numeric"
+                          pattern="\+?[0-9]+"
+                          disabled=""
+                          value=""
+                          hidden=""
+                        />
+                        <span
+                          class="momo-authorization-form__info"
+                          data-label-en="Dial *144*4*6*amount*secret code# on your line."
+                          data-label-fr="Composez * 144 * 4 * 6 * montant * code secret # sur votre ligne."
+                          >Dial *144*4*6*amount*secret code# on your line.</span
+                        >
+                      </div>
+
+                      <div class="form-control">
+                        <button
+                          type="submit"
+                          id="paymmoneyfranco-btn"
+                          class="btn"
+                        >
+                          <span data-label-en="Pay" data-label-fr="Payer"
+                            >Pay</span
+                          >
+                          <span class="rave-payment-amount"></span>
+                          <div class="btn__icon hide-xs">
+                            <svg
+                              height="19.76264"
+                              width="12.76264"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                d="m3.88131984 3.88131984 5 6-5 6"
+                                fill="none"
+                                stroke="#fbeed8"
+                                stroke-width="1.65"
+                              ></path>
+                            </svg>
+                          </div>
+                        </button>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+
+                <!-- flash voucher form view -->
+                <div
+                  class="checkout__container__option__body__paymentfield hide animated fadeIn chosen-payment-option"
+                  id="flashvoucher-method"
+                >
+                  <div id="flashvoucher-method-error"></div>
+
+                  <div id="flashvoucher-method-inner">
+                    <div class="" id="flashvoucher-entry-state">
+                      <p
+                        class="checkout__container__option__body__paymentfield__instructions text-center ussd-instruction ussd-instruction--medium"
+                      >
+                        Please enter voucher PIN and your phone number to begin
+                        payment
+                      </p>
+
+                      <form id="pay-flashvoucher-form">
+                        <div class="noamount"></div>
+
+                        <div class="form-control">
+                          <input
+                            id="flash_voucher_number"
+                            type="tel"
+                            inputmode="numeric"
+                            required=""
+                            value=""
+                          />
+                          <label for="flash_voucher_number">Voucher Pin</label>
+                        </div>
+                        <div class="form-control">
+                          <input
+                            id="flash_phone_number"
+                            minlength="10"
+                            maxlength="15"
+                            type="tel"
+                            pattern="\+?[0-9]+"
+                            placeholder="0123456789"
+                            required=""
+                            value=""
+                          />
+                          <label for="flash_phone_number">Mobile Number</label>
+                        </div>
+
+                        <div class="form-control">
+                          <button
+                            type="submit"
+                            id="payflashvoucher-btn"
+                            class="btn"
+                          >
+                            Pay
+                            <span class="rave-payment-amount"></span>
+                            <div class="btn__icon hide-xs">
+                              <svg
+                                height="19.76264"
+                                width="12.76264"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <path
+                                  d="m3.88131984 3.88131984 5 6-5 6"
+                                  fill="none"
+                                  stroke="#fbeed8"
+                                  stroke-width="1.65"
+                                ></path>
+                              </svg>
+                            </div>
+                          </button>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- bankreference button view -->
+                <div
+                  class="checkout__container__option__body__paymentfield hide animated fadeIn chosen-payment-option"
+                  id="bankreference-method"
+                >
+                  <div id="bankreference-method-error"></div>
+
+                  <div id="bankreference-method-inner">
+                    <p
+                      class="checkout__container__option__body__paymentfield__instructions text-center"
+                    >
+                      Enter your phone number to start the payment.
+                    </p>
+
+                    <form id="pay-bankreference-form">
+                      <div class="noamount"></div>
+
+                      <div class="form-control">
+                        <input
+                          id="bankreference_phone_number"
+                          minlength="11"
+                          type="tel"
+                          required=""
+                          value=""
+                        />
+                        <label for="bankreference_phone_number"
+                          >Phone Number</label
+                        >
+                      </div>
+
+                      <div class="form-control">
+                        <button
+                          type="submit"
+                          id="paybankreference-btn"
+                          class="btn"
+                        >
+                          Pay
+                          <span class="rave-payment-amount"></span>
+                          <div class="btn__icon hide-xs">
+                            <svg
+                              height="19.76264"
+                              width="12.76264"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                d="m3.88131984 3.88131984 5 6-5 6"
+                                fill="none"
+                                stroke="#fbeed8"
+                                stroke-width="1.65"
+                              ></path>
+                            </svg>
+                          </div>
+                        </button>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+
+                <!-- fawrypay button view -->
+                <div
+                  class="checkout__container__option__body__paymentfield hide animated fadeIn chosen-payment-option"
+                  id="fawrypay-method"
+                >
+                  <div id="fawrypay-method-error"></div>
+
+                  <div id="fawrypay-method-inner">
+                    <form id="pay-fawry-form">
+                      <p
+                        class="checkout__container__option__body__paymentfield__instructions text-center"
+                      >
+                        Enter your phone number to start the payment.
+                      </p>
+
+                      <div class="noamount"></div>
+
+                      <div class="form-control">
+                        <label for="fawrypay_phone_number">Phone Number</label>
+                        <input
+                          id="fawrypay_phone_number"
+                          minlength="11"
+                          type="tel"
+                          required=""
+                          value=""
+                        />
+                      </div>
+
+                      <div class="form-control">
+                        <button type="submit" id="payfawry-btn" class="btn">
+                          Pay
+                          <span class="rave-payment-amount"></span>
+                          <div class="btn__icon hide-xs">
+                            <svg
+                              height="19.76264"
+                              width="12.76264"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                d="m3.88131984 3.88131984 5 6-5 6"
+                                fill="none"
+                                stroke="#fbeed8"
+                                stroke-width="1.65"
+                              ></path>
+                            </svg>
+                          </div>
+                        </button>
+                      </div>
+
+                      <div
+                        class="api-message-section"
+                        style="position: relative; margin: 20px auto"
+                      >
+                        <svg
+                          width="20"
+                          height="20"
+                          viewBox="0 0 12 12"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            fill-rule="evenodd"
+                            clip-rule="evenodd"
+                            d="M6 12A6 6 0 1 0 6 0a6 6 0 0 0 0 12Z"
+                            fill="#637381"
+                          ></path>
+                          <path
+                            d="m5.72 3.72.06 3.4h.58l.06-3.4h-.7Zm.35 5.14c.29 0 .49-.2.49-.49 0-.28-.2-.49-.49-.49-.28 0-.49.2-.49.5 0 .28.2.48.5.48Z"
+                            fill="#fff"
+                          ></path>
+                        </svg>
+                        <span
+                          style="
+                            font-size: 1.2rem;
+                            width: calc(100% - 32px);
+                            position: absolute;
+                            line-height: 15px;
+                            right: 0;
+                            color: #333333;
+                            font-weight: 500;
+                          "
+                        >
+                          The amount displayed is exclusive of the standard
+                          processing fee at the outlet.
+                        </span>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+
+                <!-- account form view -->
+                <div
+                  class="checkout__container__option__body__paymentfield hide animated fadeIn chosen-payment-option"
+                  id="account-method"
+                >
+                  <div id="account-method-error"></div>
+
+                  <div id="account-method-inner">
+                    <form id="pay-account-form">
+                      <div class="noamount"></div>
+
+                      <div class="form-control">
+                        <button
+                          type="submit"
+                          id="payaccount-btn"
+                          class="btn hide"
+                        >
+                          Pay
+                          <span class="rave-payment-amount"></span>
+                          <div class="btn__icon hide-xs">
+                            <svg
+                              height="19.76264"
+                              width="12.76264"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                d="m3.88131984 3.88131984 5 6-5 6"
+                                fill="none"
+                                stroke="#fbeed8"
+                                stroke-width="1.65"
+                              ></path>
+                            </svg>
+                          </div>
+                        </button>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+
+                <!-- ach button view -->
+                <div
+                  class="checkout__container__option__body__paymentfield hide animated fadeIn chosen-payment-option"
+                  id="account-achbutton-method"
+                >
+                  <div id="account-achbutton-method-error"></div>
+
+                  <form id="pay-account-ach-form">
+                    <p
+                      class="checkout__container__option__body__paymentfield__instructions text-center"
+                    >
+                      You will be redirected to your US Bank to complete this
+                      payment.
+                    </p>
+
+                    <div class="noamount"></div>
+
+                    <div class="form-control">
+                      <button type="submit" id="payaccountach-btn" class="btn">
+                        Pay
+                        <span class="rave-payment-amount"></span>
+                        <div class="btn__icon hide-xs">
+                          <svg
+                            height="19.76264"
+                            width="12.76264"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="m3.88131984 3.88131984 5 6-5 6"
+                              fill="none"
+                              stroke="#fbeed8"
+                              stroke-width="1.65"
+                            ></path>
+                          </svg>
+                        </div>
+                      </button>
+                    </div>
+                  </form>
+                </div>
+
+                <!-- zar button view -->
+                <div
+                  class="checkout__container__option__body__paymentfield hide animated fadeIn chosen-payment-option"
+                  id="account-zar-method"
+                >
+                  <div id="account-zar-method-error"></div>
+
+                  <div id="account-zar-method-inner">
+                    <form id="pay-account-zar-form">
+                      <div class="noamount"></div>
+
+                      <div class="form-control">
+                        <button
+                          type="submit"
+                          id="payaccountzar-btn"
+                          class="btn"
+                        >
+                          Pay
+                          <span class="rave-payment-amount"></span>
+                          <div class="btn__icon hide-xs">
+                            <svg
+                              height="19.76264"
+                              width="12.76264"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                d="m3.88131984 3.88131984 5 6-5 6"
+                                fill="none"
+                                stroke="#fbeed8"
+                                stroke-width="1.65"
+                              ></path>
+                            </svg>
+                          </div>
+                        </button>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+
+                <!-- alipay view -->
+                <div
+                  class="checkout__container__option__body__paymentfield hide animated fadeIn chosen-payment-option"
+                  id="alipay-method"
+                >
+                  <div id="alipay-method-error"></div>
+
+                  <div id="alipay-method-inner">
+                    <form id="pay-alipay-form">
+                      <div class="noamount"></div>
+
+                      <div class="form-control">
+                        <button type="submit" id="payalipay-btn" class="btn">
+                          Pay
+                          <span class="rave-payment-amount"></span>
+                          <div class="btn__icon hide-xs">
+                            <svg
+                              height="19.76264"
+                              width="12.76264"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                d="m3.88131984 3.88131984 5 6-5 6"
+                                fill="none"
+                                stroke="#fbeed8"
+                                stroke-width="1.65"
+                              ></path>
+                            </svg>
+                          </div>
+                        </button>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+
+                <!-- paga view -->
+                <div
+                  class="checkout__container__option__body__paymentfield hide animated fadeIn chosen-payment-option"
+                  id="paga-method"
+                >
+                  <div id="paga-method-error"></div>
+
+                  <div id="paga-method-inner">
+                    <form id="pay-paga-form">
+                      <div class="noamount"></div>
+
+                      <div class="form-control">
+                        <input
+                          id="paga_email"
+                          name="paga-mail"
+                          type="email"
+                          required=""
+                          value=""
+                        />
+                        <label for="paga_email">Paga Email</label>
+                      </div>
+
+                      <div class="form-control">
+                        <button type="submit" id="paypaga-btn" class="btn">
+                          Pay
+                          <span class="rave-payment-amount"></span>
+                          <div class="btn__icon hide-xs">
+                            <svg
+                              height="19.76264"
+                              width="12.76264"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                d="m3.88131984 3.88131984 5 6-5 6"
+                                fill="none"
+                                stroke="#fbeed8"
+                                stroke-width="1.65"
+                              ></path>
+                            </svg>
+                          </div>
+                        </button>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+
+                <!-- wechat view -->
+                <div
+                  class="checkout__container__option__body__paymentfield hide animated fadeIn chosen-payment-option"
+                  id="wechat-method"
+                >
+                  <div id="wechat-method-error"></div>
+
+                  <div id="wechat-method-inner">
+                    <form id="pay-wechat-form">
+                      <div class="noamount"></div>
+
+                      <div class="form-control">
+                        <button type="submit" id="paywechat-btn" class="btn">
+                          Pay
+                          <span class="rave-payment-amount"></span>
+                          <div class="btn__icon hide-xs">
+                            <svg
+                              height="19.76264"
+                              width="12.76264"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                d="m3.88131984 3.88131984 5 6-5 6"
+                                fill="none"
+                                stroke="#fbeed8"
+                                stroke-width="1.65"
+                              ></path>
+                            </svg>
+                          </div>
+                        </button>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+
+                <!-- cryptocurrency view -->
+                <div
+                  class="checkout__container__option__body__paymentfield hide animated fadeIn chosen-payment-option"
+                  id="cryptocurrency-method"
+                >
+                  <div id="cryptocurrency-method-error"></div>
+
+                  <div id="cryptocurrency-method-inner">
+                    <form id="pay-cryptocurrency-form">
+                      <div class="noamount"></div>
+
+                      <div class="form-control">
+                        <button
+                          type="submit"
+                          id="paycryptocurrency-btn"
+                          class="btn bitpay-btn"
+                        >
+                          <!-- Pay
+                                            <span class="rave-payment-amount"></span>
+                                            <div class="btn__icon hide-xs">
+                                                <svg height="19.76264" width="12.76264" xmlns="http://www.w3.org/2000/svg"><path d="m3.88131984 3.88131984 5 6-5 6" fill="none" stroke="#fbeed8" stroke-width="1.65"/></svg>
+                                            </div> -->
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            xmlns:xlink="http://www.w3.org/1999/xlink"
+                            width="188"
+                            height="50"
+                            viewBox="0 0 188 50"
+                          >
+                            <defs>
+                              <rect
+                                id="a"
+                                width="188"
+                                height="50"
+                                rx="4"
+                              ></rect>
+                            </defs>
+                            <g fill="none" fill-rule="evenodd">
+                              <mask id="b" fill="#fff">
+                                <use xlink:href="#a"></use>
+                              </mask>
+                              <use fill="#293C92" xlink:href="#a"></use>
+                              <g fill="#1A3B8B" mask="url(#b)">
+                                <path d="M0 0h188v50H0z"></path>
+                              </g>
+                              <g fill-rule="nonzero">
+                                <g fill="#FFF">
+                                  <path
+                                    d="M151.683 20.09h-3.185l-1.843 7.777-.259 1.067a6.396 6.396 0 01-.533.129 5.184 5.184 0 01-1.019.097c-.404 0-.727-.065-.97-.178a1.009 1.009 0 01-.5-.501c-.098-.21-.13-.469-.114-.76.016-.291.08-.614.162-.938l.97-4.042.63-2.683h-3.25l-1.47 6.208a11.51 11.51 0 00-.308 2.134 4 4 0 00.307 1.795c.227.517.63.921 1.18 1.228.55.308 1.342.453 2.345.453.695 0 1.31-.065 1.827-.178.016 0 .048-.016.064-.016-.145.647-.436 1.164-.889 1.568-.469.404-1.148.615-2.053.615-.388 0-.744-.016-1.067-.065l-.63 2.635c.42.049.889.081 1.406.081.97 0 1.81-.113 2.538-.323.728-.227 1.342-.55 1.875-1.003a5.943 5.943 0 001.31-1.681c.356-.68.63-1.471.84-2.409l2.2-9.248.436-1.762zm-13.338 6.645a7.337 7.337 0 00-.178 2.441c.081.825.405 2.07.712 2.7h-3.072c-.372-.63-.356-.938-.436-1.132a5.82 5.82 0 01-1.326.809 4.03 4.03 0 01-1.633.323c-.711 0-1.326-.13-1.827-.372a3.452 3.452 0 01-1.245-1.002 3.998 3.998 0 01-.695-1.471 7.224 7.224 0 01-.21-1.811c0-.986.178-1.908.517-2.781a7.236 7.236 0 011.455-2.28c.615-.646 2.118-2.085 4.575-2.085h4.931l-1.568 6.66zm-2.247-3.961c-1.487 0-1.762 0-2.377.307-.436.226-.792.566-1.099.954-.307.388-.566.84-.744 1.358a4.898 4.898 0 00-.274 1.6c0 .68.113 1.23.34 1.633.225.405.646.599 1.26.599.323 0 .63-.065.89-.194.258-.13.549-.34.84-.647.032-.356.08-.728.145-1.116.065-.388.146-.76.21-1.083l.809-3.411zm-8.536 1.988c0 1.051-.178 2.005-.517 2.878a6.489 6.489 0 01-3.638 3.719 7.161 7.161 0 01-2.78.533c-.486 0-.97-.048-1.472-.13l-.97 3.897H115l3.702-15.553h4.252c.809 0 1.504.13 2.07.372.582.242 1.05.582 1.439 1.002.371.42.646.922.824 1.488.194.55.275 1.148.275 1.794zm-7.809 4.414c.243.065.55.08.906.08.565 0 1.067-.096 1.535-.306a3.51 3.51 0 001.18-.873c.324-.372.567-.825.76-1.342.178-.518.275-1.1.275-1.73 0-.614-.129-1.148-.404-1.568-.275-.437-.743-.663-1.423-.663h-1.26l-1.569 6.402zm-6.693 0c-.404 0-.727-.065-.97-.178a1.009 1.009 0 01-.501-.5c-.097-.211-.13-.47-.113-.76.016-.292.08-.615.162-.939l.97-4.041h3.62l.664-2.684h-3.638l.84-3.395-3.394.533-2.15 9.086a11.51 11.51 0 00-.308 2.134 4 4 0 00.308 1.795c.226.517.63.922 1.18 1.229.55.307 1.342.452 2.344.452.695 0 1.31-.064 1.827-.177.048-.017.13-.033.178-.049l.663-2.765a3.59 3.59 0 01-.663.162 5.184 5.184 0 01-1.019.097zM104.961 20.09l-2.813 11.802h3.184l2.797-11.802zM108.469 18.732l.485-2.053h-3.185l-.485 2.053zM97.912 20.106c.679 0 1.277.13 1.778.372.501.242.906.566 1.245.986.323.42.566.906.728 1.455.161.55.242 1.148.242 1.795 0 .986-.178 1.908-.55 2.797-.371.873-.856 1.649-1.487 2.296a6.96 6.96 0 01-2.231 1.536 6.895 6.895 0 01-2.78.565c-.13 0-.356 0-.68-.016a7.07 7.07 0 01-1.1-.097c-.42-.064-.856-.145-1.309-.258a6.603 6.603 0 01-1.31-.47l3.703-15.552 3.314-.518-1.31 5.513c.292-.129.55-.226.841-.29.275-.082.583-.114.906-.114zm-2.78 9.15c.5 0 .97-.112 1.406-.37a3.867 3.867 0 001.148-.971c.323-.404.582-.873.76-1.374.177-.518.274-1.051.274-1.6 0-.68-.113-1.213-.34-1.601-.226-.388-.694-.566-1.309-.566-.194 0-.404.016-.727.097-.324.064-.599.226-.857.452l-1.39 5.87c.42.064.55.08.662.08.081-.016.21-.016.372-.016z"
+                                  ></path>
+                                </g>
+                                <path
+                                  fill="#97AAFF"
+                                  d="M39.447 20.456c.694 0 1.29.118 1.788.355.498.238.875.566 1.132.986.256.42.385.904.385 1.454 0 .588-.127 1.09-.382 1.505-.254.415-.628.731-1.122.947-.493.216-1.094.325-1.8.325h-2.225v3.594h-1.255v-9.166h3.48zm0 4.59c.699 0 1.215-.16 1.549-.48.334-.318.501-.753.501-1.302 0-.332-.072-.635-.217-.91a1.59 1.59 0 00-.679-.661c-.308-.166-.693-.249-1.154-.249h-2.224v3.601h2.224zm9.722 3.09c0 .24.021.486.065.74.043.254.103.47.18.646v.1h-1.26c-.074-.163-.13-.4-.169-.71a2.776 2.776 0 01-.87.607c-.338.153-.71.23-1.115.23-.465 0-.878-.09-1.238-.268a2.037 2.037 0 01-.834-.727 1.853 1.853 0 01-.295-1.02c0-.483.129-.892.385-1.228.257-.336.62-.589 1.093-.759.472-.17 1.03-.255 1.672-.255h1.177v-.541c0-.416-.126-.742-.379-.98-.252-.236-.615-.355-1.09-.355-.288 0-.547.05-.775.148-.229.099-.407.231-.534.397a.867.867 0 00-.19.538h-1.21c0-.331.116-.653.35-.963.232-.31.56-.564.982-.759.423-.195.906-.293 1.449-.293.517 0 .97.085 1.361.255.39.17.695.426.915.769.22.342.33.76.33 1.256v3.173zm-2.994.605a2.086 2.086 0 001.39-.516c.173-.155.304-.323.395-.504v-1.41h-.983c-.69 0-1.218.106-1.585.318-.366.212-.55.526-.55.941a1.093 1.093 0 00.608 1.017c.199.103.44.154.725.154zm9.831-5.93L53.2 30.673a3.454 3.454 0 01-.747 1.193c-.326.338-.769.507-1.329.507-.09 0-.208-.012-.352-.035a2.995 2.995 0 01-.327-.066v-.938a2.312 2.312 0 00.323.031c.41 0 .728-.082.954-.248.227-.166.41-.457.553-.872l.265-.7-2.496-6.736h1.32l1.732 5.1 1.624-5.1h1.286zm12.615 0l-2.03 6.811h-.977L63.92 24.48l-1.656 5.143h-.976l-2.03-6.812h1.202l1.37 5.056 1.624-5.056h.977l1.649 5.17 1.345-5.17h1.196zm1.696-2.481c.225 0 .4.063.527.189.128.126.191.285.191.478a.627.627 0 01-.19.47c-.128.123-.303.185-.528.185-.224 0-.397-.062-.52-.186a.638.638 0 01-.184-.469c0-.193.061-.352.184-.478s.296-.19.52-.19zm-.614 9.292V22.81h1.21v6.812h-1.21zm5.848 0a3.17 3.17 0 01-.925.126c-.487 0-.878-.142-1.173-.428-.296-.285-.443-.749-.443-1.391v-4.23h-1.274v-.889h1.274v-1.655h1.21v1.655h1.305v.888H74.22v4.237c0 .323.069.54.207.652.138.111.325.167.563.167.09 0 .19-.008.297-.022.108-.015.194-.03.259-.048l.006.938zm4.393-6.938c1.496 0 2.244.825 2.244 2.475v4.463H80.98v-4.476c0-.52-.115-.898-.346-1.133-.23-.235-.579-.353-1.044-.353-.371 0-.704.099-1 .296-.295.197-.529.462-.701.793v4.873h-1.21v-9.67h1.21v3.664c.254-.298.556-.528.905-.69.35-.16.733-.242 1.151-.242z"
+                                ></path>
+                              </g>
+                            </g>
+                          </svg>
+                        </button>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+
+                <!-- ach form view -->
+                <div
+                  class="checkout__container__option__body__paymentfield hide animated fadeIn chosen-payment-option"
+                  id="account-achbutton-form-method"
+                >
+                  <div id="account-achbutton-form-method-error"></div>
+
+                  <div
+                    id="account-achbutton-form-method-inner"
+                    class="accountach-form-entry-state"
+                  >
+                    <div>
+                      <form id="pay-account-ach2-form">
+                        <div class="noamount"></div>
+
+                        <div class="form-row">
+                          <div class="form-row__left">
+                            <div class="form-control">
+                              <input
+                                id="ach_account"
+                                class="no-b-r-radius"
+                                name="ach_account"
+                                type="text"
+                                placeholder="93888049"
+                                required=""
+                                value=""
+                              />
+                              <label for="ach_account">ACCOUNT</label>
+                            </div>
+                          </div>
+                          <div class="form-row__right">
+                            <div class="form-control">
+                              <input
+                                id="ach_routing"
+                                class="no-b-l-radius"
+                                name="ach_routing"
+                                type="text"
+                                placeholder="9300"
+                                required=""
+                                value=""
+                              />
+                              <label for="ach_routing">ROUTING</label>
+                            </div>
+                          </div>
+                          <div class="clearfix"></div>
+                        </div>
+                        <div class="form-row">
+                          <div class="form-row__left">
+                            <div class="form-control">
+                              <input
+                                id="ach_first"
+                                class="no-b-r-radius"
+                                name="ach_first"
+                                type="text"
+                                placeholder="Dave"
+                                required=""
+                                value=""
+                              />
+                              <label for="ach_first">FIRST NAME</label>
+                            </div>
+                          </div>
+                          <div class="form-row__right">
+                            <div class="form-control">
+                              <input
+                                id="ach_last"
+                                class="no-b-l-radius"
+                                name="ach_last"
+                                type="text"
+                                placeholder="Williams"
+                                required=""
+                                value=""
+                              />
+                              <label for="ach_last">LAST NAME</label>
+                            </div>
+                          </div>
+                          <div class="clearfix"></div>
+                        </div>
+                        <div class="form-control">
+                          <input
+                            id="ach_mobilenumber"
+                            name="ach_mobilenumber"
+                            type="tel"
+                            placeholder="930034909"
+                            required=""
+                            value=""
+                          />
+                          <label for="ach_mobilenumber">MOBILE NUMBER</label>
+                        </div>
+
+                        <div class="form-control">
+                          <button
+                            type="submit"
+                            id="payaccountach2-btn"
+                            class="btn"
+                          >
+                            Pay
+                            <span class="rave-payment-amount"></span>
+                            <div class="btn__icon hide-xs">
+                              <svg
+                                height="19.76264"
+                                width="12.76264"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <path
+                                  d="m3.88131984 3.88131984 5 6-5 6"
+                                  fill="none"
+                                  stroke="#fbeed8"
+                                  stroke-width="1.65"
+                                ></path>
+                              </svg>
+                            </div>
+                          </button>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+
+                <!--gbp bank option-->
+                <div
+                  class="checkout__container__option__body__paymentfield hide animated fadeIn chosen-payment-option"
+                  id="accountgbp-method"
+                >
+                  <div id="accountgbp-method-error"></div>
+
+                  <div
+                    id="accountgbp-method-inner"
+                    class="accountgbp-form-entry-state"
+                  >
+                    <div>
+                      <form id="pay-accountgbp-form">
+                        <div class="noamount"></div>
+
+                        <div class="form-control">
+                          <button
+                            type="submit"
+                            id="payaccountgbp-btn"
+                            class="btn"
+                          >
+                            Pay
+                            <span class="rave-payment-amount"></span>
+                            <div class="btn__icon hide-xs">
+                              <svg
+                                height="19.76264"
+                                width="12.76264"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <path
+                                  d="m3.88131984 3.88131984 5 6-5 6"
+                                  fill="none"
+                                  stroke="#fbeed8"
+                                  stroke-width="1.65"
+                                ></path>
+                              </svg>
+                            </div>
+                          </button>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+
+                <!--banktransfer option-->
+                <div
+                  class="checkout__container__option__body__paymentfield hide animated fadeIn chosen-payment-option"
+                  id="banktransfer-method"
+                >
+                  <div id="banktransfer-method-error"></div>
+
+                  <div
+                    id="banktransfer-method-inner"
+                    class="banktransfer-form-entry-state"
+                  >
+                    <div class="noamount"></div>
+                    <!-- <div>
+                                        <h1 class="checkout__container__option__body__paymentfield__disclaimer-title text-center">Bank Transfer Disclaimer</h1>
+                                        <article class="checkout__container__option__body__paymentfield__disclaimer">
+                                            <p class="checkout__container__option__body__paymentfield__instructions ussd-instruction ussd-instruction--medium disclaimer-instruction text-center">Please note that all transfers made above or below the transaction amount will be refunded at a cost.</p>
+                                            <p class="checkout__container__option__body__paymentfield__instructions ussd-instruction ussd-instruction--medium disclaimer-instruction text-center">Refunds are not applicable in cases where the refund amount is lower or the same as the cost of refund.</p>
+                                            <p class="checkout__container__option__body__paymentfield__instructions ussd-instruction ussd-instruction--medium disclaimer-instruction text-serious">BY PROCEEDING WITH THIS PAYMENT OPTION, YOU ARE AFFIRMING THAT YOU AGREE TO ALL THE TERMS STATED ABOVE FOR THIS TRANSACTION.</p>
+                                        </article>
+                                    </div>
+                                    <div>
+                                        <form id="pay-banktransfer-form" onsubmit="return false;">
+
+                                            <div class="noamount"></div>
+
+                                            <div class="form-control">
+                                                <button type="submit" id="paybanktransfer-btn" class="btn">
+                                                Pay
+                                                <span class="rave-payment-amount"></span>
+                                                <div class="btn__icon hide-xs">
+                                                    <svg height="19.76264" width="12.76264" xmlns="http://www.w3.org/2000/svg"><path d="m3.88131984 3.88131984 5 6-5 6" fill="none" stroke="#fbeed8" stroke-width="1.65"/></svg>
+                                                </div>
+                                            </button>
+                                            </div>
+                                        </form>
+                                    </div> -->
+                  </div>
+                </div>
+
+                <!-- selected bank view -->
+                <div
+                  class="checkout__container__option__body__paymentfield hide animated fadeIn chosen-payment-option"
+                  id="pay-with-account-pay"
+                >
+                  <div id="payaccount-method-error"></div>
+
+                  <div id="payaccount-method-inner">
+                    <div class="bank--selected">
+                      <img id="selected-bank-img" src="" alt="" />
+                      <div id="account">
+                        <!-- <div id="back-to-banks-icon" class="back-button">
+                                            <img src="assets/img/back-button.svg" alt="">
+                                        </div> -->
+                        <form
+                          id="account-form"
+                          class="account-entry-state animated fadeIn"
+                        >
+                          <div class="noamount"></div>
+
+                          <div
+                            id="account-banks-phoneno"
+                            class="form-control hide"
+                          >
+                            <input
+                              id="phone_number"
+                              minlength="10"
+                              maxlength="15"
+                              type="tel"
+                              pattern="\+?[0-9]+"
+                              placeholder="080012345678"
+                              name="accountPhone"
+                              value=""
+                            />
+                            <label for="phone_number">Phone Number</label>
+                          </div>
+
+                          <div id="account-banks-dob" class="form-control hide">
+                            <input
+                              type="date"
+                              id="dob"
+                              placeholder="Enter your Date of birth DD-MM-YYYY"
+                              name="accountDob"
+                              value=""
+                            />
+                            <label for="dob">Date of Birth</label>
+                          </div>
+
+                          <div
+                            id="account-banks-accountno"
+                            class="form-control hide"
+                          >
+                            <input
+                              id="account_number"
+                              type="tel"
+                              inputmode="numeric"
+                              pattern="[+0-9]+"
+                              maxlength="10"
+                              placeholder="00012223423"
+                              name="accountNo"
+                              value=""
+                            />
+                            <label for="account_number">Account Number</label>
+                          </div>
+
+                          <div
+                            id="account-banks-dob-bvn"
+                            class="form-control hide"
+                          >
+                            <input
+                              id="bvn"
+                              type="tel"
+                              inputmode="numeric"
+                              pattern="[0-9]{11}"
+                              name="accountBvn"
+                              maxlength="11"
+                              value=""
+                            />
+                            <label for="bvn">BVN</label>
+                          </div>
+
+                          <div
+                            id="account-banks-sterling-otp"
+                            class="form-control hide"
+                          >
+                            <label for="sterling-otp">Enter OTP</label>
+                            <input
+                              id="sterling-otp"
+                              type="tel"
+                              inputmode="numeric"
+                              pattern="[0-9]{4,8}"
+                              name="otp"
+                              maxlength="8"
+                              value=""
+                            />
+                            <span
+                              class="form-control__hint"
+                              style="color: #d3d3d3; font-size: 13px"
+                              >Dial *822*999*0# on your mobile to get OTP.</span
+                            >
+                          </div>
+
+                          <div class="form-control">
+                            <button
+                              type="submit"
+                              id="account-pay-btn"
+                              class="btn"
+                            >
+                              Pay
+                              <span class="rave-payment-amount"></span>
+                              <div class="btn__icon hide-xs">
+                                <svg
+                                  height="19.76264"
+                                  width="12.76264"
+                                  xmlns="http://www.w3.org/2000/svg"
+                                >
+                                  <path
+                                    d="m3.88131984 3.88131984 5 6-5 6"
+                                    fill="none"
+                                    stroke="#fbeed8"
+                                    stroke-width="1.65"
+                                  ></path>
+                                </svg>
+                              </div>
+                            </button>
+                          </div>
+
+                          <div class="form-control">
+                            <a
+                              id="go-back-banks"
+                              class="text-center go-back"
+                              href="#"
+                              >GO BACK</a
+                            >
+                          </div>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- mpesa form view -->
+                <div
+                  class="checkout__container__option__body__paymentfield hide animated fadeIn chosen-payment-option"
+                  id="mpesa-method"
+                >
+                  <div id="mpesa-method-error"></div>
+                  <div id="mpesa-method-inner">
+                    <p
+                      class="checkout__container__option__body__paymentfield__instructions text-center"
+                    >
+                      Enter your phone number to begin payment.
+                    </p>
+
+                    <form id="mpesa-form">
+                      <div class="noamount" id="mpesa-form-no-amount"></div>
+
+                      <div
+                        class="form-control hide"
+                        id="mpesa-form-network"
+                        hidden=""
+                      >
+                        <div class="select">
+                          <select
+                            class="select__input"
+                            name="selectMpesa"
+                            id="mpesa_telco"
+                            required=""
+                          >
+                            <option disabled="" value="">Choose Network</option>
+                            <option value="SAFARICOM" selected="selected">
+                              M-PESA
+                            </option>
+                            <option value="AIRTEL">AIRTEL</option>
+                          </select>
+                          <label class="select__label" for="mpesa_telco"
+                            >Choose Network</label
+                          >
+                          <div class="select__icon">
+                            <svg
+                              height="15"
+                              viewBox="0 0 12 15"
+                              width="12"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                d="m11.8 5.93953099-5.9-5.93953099-5.9 5.93953099zm.0502498 3.14291567-5.90016649 5.93765394-5.9001665-5.93969859h11.80033299z"
+                                fill="#637381"
+                                fill-rule="evenodd"
+                              ></path>
+                            </svg>
+                          </div>
+                          <div class="select__icon select__icon--show hide">
+                            <svg width="16" height="10" viewBox="0 0 16 10">
+                              <path
+                                id="a"
+                                d="M16 .333v3.084l-8 6.25-8-6.25V.333l8 6.25z"
+                                fill="currentColor"
+                              ></path>
+                            </svg>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="form-control">
+                        <input
+                          id="mpesa_phone_number"
+                          minlength="10"
+                          maxlength="15"
+                          type="tel"
+                          pattern="\+?[0-9]+"
+                          required=""
+                          value=""
+                        />
+                        <label for="mpesa_phone_number">Phone Number</label>
+                      </div>
+
+                      <div class="form-control">
+                        <button type="submit" id="paympesa-btn" class="btn">
+                          Pay
+                          <span class="rave-payment-amount"></span>
+                          <div class="btn__icon hide-xs">
+                            <svg
+                              height="19.76264"
+                              width="12.76264"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                d="m3.88131984 3.88131984 5 6-5 6"
+                                fill="none"
+                                stroke="#fbeed8"
+                                stroke-width="1.65"
+                              ></path>
+                            </svg>
+                          </div>
+                        </button>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+
+                <!-- credit form view -->
+                <div
+                  class="checkout__container__option__body__paymentfield hide animated fadeIn chosen-payment-option"
+                  id="credit-method"
+                >
+                  <div id="credit-method-error"></div>
+                  <div id="credit-method-inner">
+                    <div id="notEligibleForLoan" style="display: none">
+                      <div class="error-section">
+                        <div class="error">
+                          <p id="notEligibleForLoanMessage"></p>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div id="checkEligibility">
+                      <p
+                        class="checkout__container__option__body__paymentfield__instructions text-center"
+                      >
+                        Please enter your phone number to begin payment
+                      </p>
+
+                      <form id="check-eligible-form" class="credit-entry-state">
+                        <div class="noamount"></div>
+
+                        <div class="form-control">
+                          <input
+                            id="credit_phonenumber"
+                            name="creditPhoneNumber"
+                            minlength="11"
+                            type="tel"
+                            required=""
+                            value=""
+                          />
+                          <label for="credit_phonenumber">Phone Number</label>
+                        </div>
+
+                        <div class="form-control">
+                          <button
+                            type="submit"
+                            id="check-eligibility-btn"
+                            class="btn"
+                          >
+                            Pay
+                            <span class="rave-payment-amount"></span>
+                            <div class="btn__icon hide-xs">
+                              <svg
+                                height="19.76264"
+                                width="12.76264"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <path
+                                  d="m3.88131984 3.88131984 5 6-5 6"
+                                  fill="none"
+                                  stroke="#fbeed8"
+                                  stroke-width="1.65"
+                                ></path>
+                              </svg>
+                            </div>
+                          </button>
+                        </div>
+                      </form>
+                    </div>
+
+                    <div id="eligibleForLoan" style="display: none">
+                      <div class="error-section">
+                        <div class="error">
+                          <p class="text-capitalize">
+                            <strong>Terms &amp; Conditions</strong>
+                          </p>
+
+                          <p>
+                            Pay with Migo allows you to complete your
+                            transaction of
+                            <span id="credit-principal"></span> immediately on
+                            credit and pay back
+                            <span id="credit-principalinterest"></span>
+                            (principal + interest) in
+                            <span id="credit-time"></span> days.
+                          </p>
+                        </div>
+                      </div>
+
+                      <form id="credit-form">
+                        <div class="form-control">
+                          <button
+                            type="submit"
+                            id="paycredit-btn"
+                            class="btn credit-btn"
+                          >
+                            I Agree to the Terms &amp; Conditions
+                            <div class="btn__icon hide-xs">
+                              <svg
+                                height="19.76264"
+                                width="12.76264"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <path
+                                  d="m3.88131984 3.88131984 5 6-5 6"
+                                  fill="none"
+                                  stroke="#fbeed8"
+                                  stroke-width="1.65"
+                                ></path>
+                              </svg>
+                            </div>
+                          </button>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- payattitude form view -->
+                <div
+                  class="checkout__container__option__body__paymentfield hide animated fadeIn chosen-payment-option"
+                  id="payattitude-method"
+                >
+                  <div id="payattitude-method-error"></div>
+
+                  <div id="payattitude-method-inner">
+                    <p
+                      id="payattitude-instruction"
+                      class="checkout__container__option__body__paymentfield__instructions text-center hide"
+                    >
+                      Your payment has been initiated. Please complete the
+                      payment on your mobile phone or app.
+                    </p>
+
+                    <img
+                      id="payattitude-spinner"
+                      class="spin checkout__container__option__body__paymentfield__innerspinner hide"
+                      src="spinner.svg"
+                      alt=""
+                    />
+
+                    <form id="payattitude-form">
+                      <div class="noamount"></div>
+
+                      <div class="form-control">
+                        <input
+                          id="payattitude_phone_number"
+                          minlength="10"
+                          maxlength="15"
+                          type="tel"
+                          pattern="\+?[0-9]+"
+                          placeholder="0123456789"
+                          required=""
+                          value=""
+                        />
+                        <label for="payattitude_phone_number"
+                          >Phone Number</label
+                        >
+                      </div>
+
+                      <div class="form-control">
+                        <button
+                          type="submit"
+                          id="paypayattitude-btn"
+                          class="btn"
+                        >
+                          Pay
+                          <span class="rave-payment-amount"></span>
+                          <div class="btn__icon hide-xs">
+                            <svg
+                              height="19.76264"
+                              width="12.76264"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                d="m3.88131984 3.88131984 5 6-5 6"
+                                fill="none"
+                                stroke="#fbeed8"
+                                stroke-width="1.65"
+                              ></path>
+                            </svg>
+                          </div>
+                        </button>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                class="show-xs width100 checkout__container__option__body__close-xs"
+              >
+                <div id="close-current-method">
+                  <div id="back-to-intro">
+                    <div class="back-to-intro--left">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="21"
+                        height="21"
+                        viewBox="0 0 21 21"
+                        fill="none"
+                      >
+                        <g
+                          fill="#000"
+                          fill-opacity=".4"
+                          clip-path="url(#clip0)"
+                        >
+                          <path
+                            d="M9.308 17.292a6.976 6.976 0 0 0 7.417-3.111l-.909-.567a5.89 5.89 0 0 1-10.88-3.422l1.613 1.476.723-.79L4.9 8.706a.536.536 0 0 0-.756.033L1.97 11.111l.79.724 1.098-1.197a6.971 6.971 0 0 0 5.449 6.654zM14.358 10.107l2.372 2.172c.218.2.556.185.756-.033l2.172-2.372-.79-.724-1.097 1.197A6.96 6.96 0 0 0 4.905 6.806l.909.567a5.89 5.89 0 0 1 10.88 3.421l-1.613-1.476-.723.79z"
+                          ></path>
+                        </g>
+                        <defs>
+                          <clipPath id="clip0">
+                            <path
+                              fill="#fff"
+                              d="M0 0h17v17H0z"
+                              transform="rotate(102.5 8.858 10.398)"
+                            ></path>
+                          </clipPath>
+                        </defs>
+                      </svg>
+                    </div>
+                    <div class="back-to-intro--right">
+                      <span>Change payment method</span>
+                    </div>
+                    <div class="clearfix"></div>
+                  </div>
+                </div>
+                <div id="mobile-close-bottom-btn">
+                  <span class="cancel-icon">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="10"
+                      height="10"
+                      viewBox="0 0 10 10"
+                      fill="none"
+                    >
+                      <path
+                        fill="#000"
+                        fill-opacity=".4"
+                        d="M5.884 5L9.817 1.07a.625.625 0 1 0-.885-.885L5 4.117 1.068.184a.625.625 0 1 0-.885.885L4.116 5 .183 8.933a.625.625 0 1 0 .885.884L5 5.885l3.932 3.932a.624.624 0 0 0 .885 0 .625.625 0 0 0 0-.884L5.884 5.001z"
+                      ></path>
+                    </svg>
+                  </span>
+                  <span
+                    class="cancel-payment-text"
+                    data-label-en="Cancel Payment"
+                    data-label-fr="Annuler le paiement"
+                    >Cancel Payment</span
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- bottom payment options view -->
+          <div
+            class="checkout__container__methods"
+            id="methods-container"
+          ></div>
+        </div>
+      </div>
+
+      <div class="iframe__close" data-label-en="Close" data-label-fr="Conclure">
+        Close
+      </div>
+    </div>
+
+    <div class="spinner-container" id="rve_spinner_container_0999">
+      <div class="spinner">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="svg-spinner"
+          width="40"
+          height="40"
+          viewBox="0 0 60 60"
+        >
+          <path
+            fill="currentColor"
+            fill-rule="evenodd"
+            d="M59.972 26a37.616 37.616 0 0 0-.71-3.455 30.092 30.092 0 0 0-1.446-4.26 30.682 30.682 0 0 0-4.809-7.849 29.483 29.483 0 0 0-7.594-6.389A29.733 29.733 0 0 0 36.292.551C34.63.216 32.956.015 31.255.002a39.08 39.08 0 0 0-3.964.16 30.369 30.369 0 0 0-9.898 2.747 30.882 30.882 0 0 0-7.34 4.848A30.286 30.286 0 0 0 4.4 14.495C2.7 17.28 1.427 20.32.73 23.509c-.562 2.545-.83 5.17-.696 7.782.12 2.532.509 5.063 1.272 7.488a30.823 30.823 0 0 0 1.782 4.5 30.367 30.367 0 0 0 2.464 4.112 30.149 30.149 0 0 0 6.67 6.764 29.967 29.967 0 0 0 18.779 5.827 29.845 29.845 0 0 0 9.724-1.942 29.06 29.06 0 0 0 8.237-4.862c1.232-1.045 2.33-2.224 3.362-3.47 1.045-1.259 1.982-2.585 2.76-4.018a29.445 29.445 0 0 0 1.714-3.817c.24-.643.469-1.286.656-1.956.2-.71.348-1.446.482-2.17.201-1.138.281-2.317.174-3.469-.093.51-.174 1.005-.294 1.5a14.602 14.602 0 0 1-.55 1.688c-.428 1.165-.964 2.29-1.473 3.416a36.09 36.09 0 0 1-2.25 4.125 28.98 28.98 0 0 1-1.353 1.996c-.482.643-1.031 1.259-1.58 1.862a23.257 23.257 0 0 1-3.617 3.268 26.913 26.913 0 0 1-4.3 2.585c-3.026 1.473-6.335 2.357-9.683 2.652a27.72 27.72 0 0 1-10.22-1.018 27.424 27.424 0 0 1-8.72-4.393 27.441 27.441 0 0 1-6.455-6.939c-1.808-2.719-3.054-5.786-3.737-8.987a26.897 26.897 0 0 1-.402-2.532c-.08-.723-.147-1.46-.174-2.196a26.23 26.23 0 0 1 .281-4.581c.496-3.295 1.568-6.47 3.228-9.363a26.813 26.813 0 0 1 5.64-6.885 26.563 26.563 0 0 1 7.607-4.701 25.887 25.887 0 0 1 5.01-1.46 24.97 24.97 0 0 1 2.611-.362c.429-.04.844-.04 1.273-.08.174 0 .348.013.522.013 2.906-.053 5.826.322 8.599 1.192a25.15 25.15 0 0 1 8.237 4.42 25.798 25.798 0 0 1 6.295 7.475 27.988 27.988 0 0 1 2.934 7.795c.134.63.24 1.26.348 1.889a2.11 2.11 0 0 0 .91 1.433c1.045.696 2.505.228 3.014-.897.174-.389.228-.804.161-1.193z"
+          ></path>
+        </svg>
+      </div>
+    </div>
+  </body>
+</html>

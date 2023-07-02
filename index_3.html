@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html data-scrapbook-source="https://app.grey.co/" lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Intercom Live Chat</title>
+    <base target="_parent" />
+    <style data-emotion="intercom-global">
+      @font-face {
+        font-family: "intercom-font";
+        src: url("") format("woff");
+        font-display: swap;
+      }
+      @font-face {
+        font-family: "intercom-font";
+        src: url("") format("woff");
+        font-weight: bold;
+        font-display: swap;
+      }
+      @font-face {
+        font-family: "intercom-font";
+        src: url("") format("woff");
+        font-style: italic;
+        font-display: swap;
+      }
+      @font-face {
+        font-family: "intercom-font";
+        src: url("") format("woff");
+        font-style: italic;
+        font-weight: bold;
+        font-display: swap;
+      }
+      html {
+        font-family: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif,
+          "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+        font-size-adjust: none;
+        font-size: 100%;
+        font-style: normal;
+        letter-spacing: normal;
+        font-stretch: normal;
+        font-variant: normal;
+        font-weight: normal;
+        text-align: left;
+        text-align-last: initial;
+        text-decoration: none;
+        text-emphasis: none currentcolor;
+        text-indent: 0px;
+        text-justify: auto;
+        text-shadow: none;
+        text-transform: none;
+        box-sizing: content-box;
+        line-height: 1;
+      }
+      button,
+      textarea,
+      input,
+      iframe {
+        font-family: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif,
+          "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+        font-size-adjust: none;
+        font-size: 100%;
+        font-style: normal;
+        letter-spacing: normal;
+        font-stretch: normal;
+        font-variant: normal;
+        font-weight: normal;
+        text-align: left;
+        text-align-last: initial;
+        text-decoration: none;
+        text-emphasis: none currentcolor;
+        text-indent: 0px;
+        text-justify: auto;
+        text-shadow: none;
+        text-transform: none;
+        margin: 0px;
+        padding: 0px;
+        background-color: transparent;
+        background-image: none;
+        border: medium none;
+        border-radius: 0px;
+        box-sizing: content-box;
+        line-height: inherit;
+        color: inherit;
+        min-width: 0px;
+      }
+      a {
+        font-family: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif,
+          "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+        font-size-adjust: none;
+        font-size: 100%;
+        font-style: normal;
+        letter-spacing: normal;
+        font-stretch: normal;
+        font-variant: normal;
+        font-weight: normal;
+        text-align: left;
+        text-align-last: initial;
+        text-decoration: none;
+        text-emphasis: none currentcolor;
+        text-indent: 0px;
+        text-justify: auto;
+        text-shadow: none;
+        text-transform: none;
+        line-height: inherit;
+      }
+      p {
+        margin: 0px;
+        padding: 0px;
+      }
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        font-family: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif,
+          "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+        font-size-adjust: none;
+        font-size: 100%;
+        font-style: normal;
+        letter-spacing: normal;
+        font-stretch: normal;
+        font-variant: normal;
+        font-weight: normal;
+        text-align: left;
+        text-align-last: initial;
+        text-decoration: none;
+        text-emphasis: none currentcolor;
+        text-indent: 0px;
+        text-justify: auto;
+        text-shadow: none;
+        text-transform: none;
+        margin: 0px;
+        padding: 0px;
+        line-height: inherit;
+      }
+      ol,
+      ul,
+      li {
+        font-family: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif,
+          "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+        font-size-adjust: none;
+        font-size: 100%;
+        font-style: normal;
+        letter-spacing: normal;
+        font-stretch: normal;
+        font-variant: normal;
+        font-weight: normal;
+        text-align: left;
+        text-align-last: initial;
+        text-decoration: none;
+        text-emphasis: none currentcolor;
+        text-indent: 0px;
+        text-justify: auto;
+        text-shadow: none;
+        text-transform: none;
+        margin: 0px;
+        padding: 0px;
+        display: block;
+      }
+      li {
+        display: list-item;
+      }
+      b,
+      strong {
+        font-weight: 590;
+      }
+      b > i,
+      strong > i,
+      b > em,
+      strong > em,
+      i > b,
+      i > strong,
+      em > b,
+      em > strong {
+        font-weight: bold;
+        font-style: italic;
+      }
+      textarea,
+      input {
+        cursor: text;
+      }
+      textarea::selection,
+      input::selection {
+        background-color: rgb(179, 212, 252);
+      }
+      textarea::-webkit-input-placeholder,
+      input::-webkit-input-placeholder {
+        font-family: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif,
+          "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+        font-size-adjust: none;
+        font-size: 100%;
+        font-style: normal;
+        letter-spacing: normal;
+        font-stretch: normal;
+        font-variant: normal;
+        font-weight: normal;
+        text-align: left;
+        text-align-last: initial;
+        text-decoration: none;
+        text-emphasis: none currentcolor;
+        text-indent: 0px;
+        text-justify: auto;
+        text-shadow: none;
+        text-transform: none;
+        background-color: inherit;
+        color: inherit;
+      }
+      textarea::placeholder,
+      input::placeholder {
+        font-family: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif,
+          "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+        font-size-adjust: none;
+        font-size: 100%;
+        font-style: normal;
+        letter-spacing: normal;
+        font-stretch: normal;
+        font-variant: normal;
+        font-weight: normal;
+        text-align: left;
+        text-align-last: initial;
+        text-decoration: none;
+        text-emphasis: none currentcolor;
+        text-indent: 0px;
+        text-justify: auto;
+        text-shadow: none;
+        text-transform: none;
+        background-color: inherit;
+        color: inherit;
+      }
+      textarea::placeholder,
+      input::placeholder {
+        font-family: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif,
+          "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+        font-size-adjust: none;
+        font-size: 100%;
+        font-style: normal;
+        letter-spacing: normal;
+        font-stretch: normal;
+        font-variant: normal;
+        font-weight: normal;
+        text-align: left;
+        text-align-last: initial;
+        text-decoration: none;
+        text-emphasis: none currentcolor;
+        text-indent: 0px;
+        text-justify: auto;
+        text-shadow: none;
+        text-transform: none;
+        background-color: inherit;
+        color: inherit;
+      }
+      input[type="checkbox"],
+      input[type="radio"] {
+        cursor: default;
+      }
+      pre {
+        font-family: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif,
+          "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+        font-size-adjust: none;
+        font-size: 100%;
+        font-style: normal;
+        letter-spacing: normal;
+        font-stretch: normal;
+        font-variant: normal;
+        font-weight: normal;
+        text-align: left;
+        text-align-last: initial;
+        text-decoration: none;
+        text-emphasis: none currentcolor;
+        text-indent: 0px;
+        text-justify: auto;
+        text-shadow: none;
+        text-transform: none;
+        margin: 0px;
+        padding: 0px;
+      }
+      img {
+        height: auto;
+      }
+      a,
+      a *,
+      a span,
+      button,
+      button *,
+      button span,
+      input[type="submit"],
+      input[type="reset"] {
+        cursor: pointer;
+      }
+      :focus {
+        outline: currentcolor none medium;
+      }
+      a:link,
+      a:visited,
+      a:hover,
+      a:active {
+        color: inherit;
+        background: transparent none repeat scroll 0% 0%;
+        text-shadow: none;
+      }
+      button::-moz-focus-inner {
+        border: 0px none;
+        padding: 0px;
+      }
+      #intercom-container-body {
+        overflow: hidden;
+      }
+      #intercom-container-body.intercom-container-body-no-margin {
+        margin: 0px;
+      }
+      a,
+      a:visited,
+      .intercom-anchor {
+        color: rgb(39, 48, 61);
+        cursor: pointer;
+      }
+      a:hover,
+      .intercom-anchor:hover {
+        color: rgb(59, 72, 92);
+      }
+      a:active,
+      .intercom-anchor:active {
+        color: rgb(79, 97, 123);
+      }
+      @media not all {
+        .intercom-launcher {
+          background: black none repeat scroll 0% 0%;
+          border: 1px solid white;
+        }
+        [role="button"],
+        button {
+          border: 1px solid white !important;
+          background: black none repeat scroll 0% 0% !important;
+          color: white !important;
+        }
+        [role="button"]:hover,
+        button:hover,
+        [role="button"]:focus,
+        button:focus,
+        [role="button"]:active,
+        button:active {
+          border: 1px solid white !important;
+          background: black none repeat scroll 0% 0% !important;
+          color: white !important;
+        }
+        [role="button"] *,
+        button * {
+          color: white !important;
+        }
+      }
+    </style>
+    <style data-emotion="intercom">
+      .intercom-z3494v {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        background: rgb(39, 48, 61) none repeat scroll 0% 0%;
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        cursor: pointer;
+        backface-visibility: hidden;
+        overflow: hidden;
+      }
+      .intercom-z3494v * {
+        cursor: pointer;
+      }
+      .intercom-19jrgjj {
+        user-select: none;
+        display: flex;
+        -moz-box-align: center;
+        align-items: center;
+        -moz-box-pack: center;
+        justify-content: center;
+        position: absolute;
+        top: 0px;
+        bottom: 0px;
+        width: 100%;
+        opacity: 1;
+        transform: rotate(0deg) scale(1);
+        transition: transform 0.4s ease 0.2s;
+      }
+      .intercom-19jrgjj svg {
+        width: 24px;
+        height: 24px;
+      }
+      .intercom-19jrgjj svg path {
+        fill: rgb(255, 255, 255);
+      }
+      .intercom-1epm6qj {
+        user-select: none;
+        display: flex;
+        -moz-box-align: center;
+        align-items: center;
+        -moz-box-pack: center;
+        justify-content: center;
+        position: absolute;
+        top: 0px;
+        bottom: 0px;
+        width: 100%;
+        transition: transform 0.16s linear 0s, opacity 0.08s linear 0s;
+        opacity: 0;
+        transform: rotate(-60deg);
+      }
+      .intercom-1epm6qj svg path {
+        fill: rgb(255, 255, 255);
+      }
+      .intercom-1u7xwp5 {
+        user-select: none;
+        display: flex;
+        -moz-box-align: center;
+        align-items: center;
+        -moz-box-pack: center;
+        justify-content: center;
+        position: absolute;
+        top: 0px;
+        bottom: 0px;
+        width: 100%;
+        transition: transform 0.16s linear 0s, opacity 0.08s linear 0s;
+        opacity: 1;
+        transform: rotate(0deg) scale(1);
+      }
+      .intercom-1u7xwp5 svg {
+        width: 24px;
+        height: 24px;
+      }
+      .intercom-1u7xwp5 svg path {
+        fill: rgb(255, 255, 255);
+      }
+    </style>
+  </head>
+  <body id="intercom-container-body" dir="ltr" class="">
+    <div
+      id="intercom-container"
+      class="intercom-namespace"
+      role="main"
+      aria-live="polite"
+    >
+      <div tabindex="-1" role="region">
+        <div
+          class="intercom-launcher intercom-z3494v e11rlguj0"
+          role="button"
+          data-testid="launcher-with-badge-cutout-none"
+          aria-label="Open Intercom Messenger"
+          tabindex="0"
+        >
+          <div
+            data-testid="launcher-default-open-icon"
+            class="intercom-1u7xwp5 e11rlguj1"
+          >
+            <svg
+              focusable="false"
+              aria-hidden="true"
+              viewBox="0 0 28 32"
+              width="28"
+              height="32"
+            >
+              <path
+                d="M28,32 C28,32 23.2863266,30.1450667 19.4727818,28.6592 L3.43749107,28.6592 C1.53921989,28.6592 0,27.0272 0,25.0144 L0,3.6448 C0,1.632 1.53921989,0 3.43749107,0 L24.5615088,0 C26.45978,0 27.9989999,1.632 27.9989999,3.6448 L27.9989999,22.0490667 L28,22.0490667 L28,32 Z M23.8614088,20.0181333 C23.5309223,19.6105242 22.9540812,19.5633836 22.5692242,19.9125333 C22.5392199,19.9392 19.5537934,22.5941333 13.9989999,22.5941333 C8.51321617,22.5941333 5.48178311,19.9584 5.4277754,19.9104 C5.04295119,19.5629428 4.46760991,19.6105095 4.13759108,20.0170667 C3.97913051,20.2124916 3.9004494,20.4673395 3.91904357,20.7249415 C3.93763774,20.9825435 4.05196575,21.2215447 4.23660523,21.3888 C4.37862552,21.5168 7.77411059,24.5386667 13.9989999,24.5386667 C20.2248893,24.5386667 23.6203743,21.5168 23.7623946,21.3888 C23.9467342,21.2215726 24.0608642,20.9827905 24.0794539,20.7254507 C24.0980436,20.4681109 24.0195551,20.2135019 23.8614088,20.0181333 Z"
+              ></path>
+            </svg>
+          </div>
+          <div
+            data-testid="launcher-minimize-icon"
+            class="intercom-1epm6qj e11rlguj3"
+          >
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M18.601 8.39897C18.269 8.06702 17.7309 8.06702 17.3989 8.39897L12 13.7979L6.60099 8.39897C6.26904 8.06702 5.73086 8.06702 5.39891 8.39897C5.06696 8.73091 5.06696 9.2691 5.39891 9.60105L11.3989 15.601C11.7309 15.933 12.269 15.933 12.601 15.601L18.601 9.60105C18.9329 9.2691 18.9329 8.73091 18.601 8.39897Z"
+                fill="white"
+              ></path>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
